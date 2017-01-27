@@ -1,0 +1,64 @@
+{
+  "name": "WordPress",
+  "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+  "keywords": [
+    "wordpress",
+    "cms"
+  ],
+  "website": "https://wordpress.org/",
+  "repository": "https://github.com/PhilippHeuer/wordpress-heroku",
+  "success_url": "/wp/wp-admin",
+  "scripts": {
+    "postdeploy": "find . -type f -perm 664 -print -exec chmod 644 {} \;"
+  },
+  "stack": "cedar-14",
+  "env": {
+    "WP_ENV": {
+      "description": "Set to environment (`development`, `staging`, `production`)",
+      "value": "production"
+    },
+    "AUTH_KEY": {
+      "description": "A secret key to increase security of stored information.",
+      "generator": "secret"
+    },
+    "SECURE_AUTH_KEY": {
+      "description": "A secret key to increase security of stored information.",
+      "generator": "secret"
+    },
+    "LOGGED_IN_KEY": {
+      "description": "A secret key to increase security of stored information.",
+      "generator": "secret"
+    },
+    "NONCE_KEY": {
+      "description": "A secret key to increase security of stored information.",
+      "generator": "secret"
+    },
+    "AUTH_SALT": {
+      "description": "A secret key to increase security of stored information.",
+      "generator": "secret"
+    },
+    "SECURE_AUTH_SALT": {
+      "description": "A secret key to increase security of stored information.",
+      "generator": "secret"
+    },
+    "LOGGED_IN_SALT": {
+      "description": "A secret key to increase security of stored information.",
+      "generator": "secret"
+    },
+    "NONCE_SALT": {
+      "description": "A secret key to increase security of stored information.",
+      "generator": "secret"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [
+    {
+      "plan": "jawsdb-maria:kitefin"
+    }
+  ]
+}

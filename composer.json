@@ -5,55 +5,63 @@
   "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
   "homepage": "https://roots.io/bedrock/",
   "authors": [
-    {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
-    }
+	{
+	  "name": "Scott Walkinshaw",
+	  "email": "scott.walkinshaw@gmail.com",
+	  "homepage": "https://github.com/swalkinshaw"
+	},
+	{
+	  "name": "Ben Word",
+	  "email": "ben@benword.com",
+	  "homepage": "https://github.com/retlehs"
+	}
   ],
   "keywords": [
-    "bedrock", "roots", "wordpress", "stack", "composer", "vagrant", "wp"
+	"bedrock", "roots", "wordpress", "stack", "composer", "vagrant", "wp"
   ],
   "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
+	"issues": "https://github.com/roots/bedrock/issues",
+	"forum": "https://discourse.roots.io/category/bedrock"
   },
   "config": {
-    "preferred-install": "dist"
+	"preferred-install": "dist"
   },
   "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    }
+	{
+	  "type": "composer",
+	  "url": "https://wpackagist.org"
+	}
   ],
   "require": {
-    "php": ">=5.6",
-    "composer/installers": "~1.0.12",
-    "vlucas/phpdotenv": "^2.0.1",
-    "johnpbloch/wordpress": "4.7.2",
-    "oscarotero/env": "^1.0",
-    "roots/wp-password-bcrypt": "1.0.0"
+	"php": ">=5.6",
+	"composer/installers": "~1.0.12",
+	"vlucas/phpdotenv": "^2.0.1",
+	"koodimonni/composer-dropin-installer": "~1.0.2",
+	"johnpbloch/wordpress": "4.7.2",
+	"oscarotero/env": "^1.0",
+	"roots/wp-password-bcrypt": "1.0.0",
+	"wpackagist-plugin/wordpress-mu-domain-mapping": "~0.5.5"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^2.5.1"
+	"heroku/heroku-buildpack-php": "dev-master",
+	"squizlabs/php_codesniffer": "^2.5.1"
   },
   "extra": {
-    "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
-    },
-    "wordpress-install-dir": "web/wp"
+	"installer-paths": {
+	  "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+	  "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+	  "web/app/themes/{$name}/": ["type:wordpress-theme"]
+	},
+	"dropin-paths": {
+	  "web/app/": [
+		"package:wpackagist-plugin/wordpress-mu-domain-mapping:sunrise.php"
+	  ]
+	},
+	"wordpress-install-dir": "web/wp"
   },
   "scripts": {
-    "test": [
-      "vendor/bin/phpcs"
-    ]
+	"test": [
+	  "vendor/bin/phpcs"
+	]
   }
 }
