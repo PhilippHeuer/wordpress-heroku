@@ -3,7 +3,10 @@
   "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
   "keywords": [
     "wordpress",
-    "cms"
+    "cms",
+	"bedrock",
+	"boilerplate",
+	"composer"
   ],
   "website": "https://wordpress.org/",
   "repository": "https://github.com/PhilippHeuer/wordpress-heroku",
@@ -59,5 +62,10 @@
     {
       "plan": "jawsdb-maria:kitefin"
     }
+  ],
+  "buildpacks": [
+	{
+	  "url": "https://github.com/heroku/heroku-buildpack-php"
+	}
   ]
 }

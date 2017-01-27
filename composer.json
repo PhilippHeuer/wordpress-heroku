@@ -1,28 +1,12 @@
 {
-  "name": "roots/bedrock",
+  "name": "philippheuer/wordpress4heroku",
   "type": "project",
   "license": "MIT",
   "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
-  "homepage": "https://roots.io/bedrock/",
-  "authors": [
-	{
-	  "name": "Scott Walkinshaw",
-	  "email": "scott.walkinshaw@gmail.com",
-	  "homepage": "https://github.com/swalkinshaw"
-	},
-	{
-	  "name": "Ben Word",
-	  "email": "ben@benword.com",
-	  "homepage": "https://github.com/retlehs"
-	}
-  ],
+  "homepage": "https://github.com/PhilippHeuer/wordpress4herkou",
   "keywords": [
-	"bedrock", "roots", "wordpress", "stack", "composer", "vagrant", "wp"
+	"bedrock", "wordpress", "stack", "composer", "heroku", "wp"
   ],
-  "support": {
-	"issues": "https://github.com/roots/bedrock/issues",
-	"forum": "https://discourse.roots.io/category/bedrock"
-  },
   "config": {
 	"preferred-install": "dist"
   },
@@ -43,12 +27,12 @@
 	"wpackagist-plugin/wordpress-mu-domain-mapping": "~0.5.5"
   },
   "require-dev": {
-	"heroku/heroku-buildpack-php": "dev-master",
+	"heroku/heroku-buildpack-php": "*",
 	"squizlabs/php_codesniffer": "^2.5.1"
   },
   "extra": {
 	"installer-paths": {
-	  "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+	  "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin", "wpackagist-plugin/wordpress-mu-domain-mapping"],
 	  "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
 	  "web/app/themes/{$name}/": ["type:wordpress-theme"]
 	},
