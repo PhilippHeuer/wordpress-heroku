@@ -3,6 +3,10 @@ README.md
 LICENSE.md
 CHANGELOG.md
 .gitignore
+.slugignore
+.editorconfig
+.travis.yml
+phpcs.xml
 
 # Heroku Deploy Configuration
 app.json

@@ -20,6 +20,48 @@ if (file_exists($root_dir . '/.env')) {
 }
 
 /**
+ * Intercept Env - Heroku - JawsDB
+ */
+$env = getenv('JAWSDB_URL');
+if ( $env ) {
+	$url = parse_url($env);
+	putenv(sprintf('DB_HOST=%s', $url['host']));
+	if ( array_key_exists('port', $url) ) {
+		putenv(sprintf('DB_PORT=%s', $url['port']));
+	}
+	putenv(sprintf('DB_USER=%s', $url['user']));
+	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
+	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+} else {
+	if (!getenv('DB_HOST')) {
+		putenv('DB_HOST=localhost');
+	}
+	if (!getenv('DB_USER')) {
+		putenv('DB_USER=root');
+	}
+}
+
+/**
+ * Intercept Env - Heroku - ClearDb
+ */
+$env = getenv('CLEARDB_DATABASE_URL');
+if ( $env ) {
+	$url = parse_url($env);
+	putenv(sprintf('DB_HOST=%s', $url['host']));
+	putenv(sprintf('DB_PORT=%s', $url['port']));
+	putenv(sprintf('DB_USER=%s', $url['user']));
+	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
+	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+} else {
+	if (!getenv('DB_HOST')) {
+		putenv('DB_HOST=localhost');
+	}
+	if (!getenv('DB_USER')) {
+		putenv('DB_USER=root');
+	}
+}
+
+/**
  * Set up our global environment constant and load its config first
  * Default: production
  */
@@ -104,48 +146,6 @@ if (env('WP_MULTISITE_MAIN_DOMAIN')) {
 	define('SITE_ID_CURRENT_SITE', 1);
 	define('BLOG_ID_CURRENT_SITE', 1);
 	define('SUNRISE', true);
-}
-
-/**
- * Heroku - JawsDB
- */
-$env = getenv('JAWSDB_URL');
-if ( $env ) {
-	$url = parse_url($env);
-	putenv(sprintf('DB_HOST=%s', $url['host']));
-	if ( array_key_exists('port', $url) ) {
-		putenv(sprintf('DB_PORT=%s', $url['port']));
-	}
-	putenv(sprintf('DB_USER=%s', $url['user']));
-	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
-} else {
-	if (!getenv('DB_HOST')) {
-		putenv('DB_HOST=localhost');
-	}
-	if (!getenv('DB_USER')) {
-		putenv('DB_USER=root');
-	}
-}
-
-/**
- * Heroku - ClearDb
- */
-$env = getenv('CLEARDB_DATABASE_URL');
-if ( $env ) {
-	$url = parse_url($env);
-	putenv(sprintf('DB_HOST=%s', $url['host']));
-	putenv(sprintf('DB_PORT=%s', $url['port']));
-	putenv(sprintf('DB_USER=%s', $url['user']));
-	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
-} else {
-	if (!getenv('DB_HOST')) {
-		putenv('DB_HOST=localhost');
-	}
-	if (!getenv('DB_USER')) {
-		putenv('DB_USER=root');
-	}
 }
 
 /**
