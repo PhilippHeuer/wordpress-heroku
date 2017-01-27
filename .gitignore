@@ -8,13 +8,21 @@ web/app/uploads/*
 
 # WordPress
 web/wp
-web/.htaccess
 
 # Dotenv
 .env
-.env.*
-!.env.example
 
 # Composer
 vendor/*
 !vendor/.gitkeep
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/

@@ -1,0 +1,8 @@
+# Unneeded Files
+README.md
+LICENSE.md
+CHANGELOG.md
+.gitignore
+
+# Heroku Deploy Configuration
+app.json
