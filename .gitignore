@@ -5,6 +5,7 @@ web/app/mu-plugins/*/
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
+web/app/themes
 
 # WordPress
 web/wp
@@ -13,8 +14,7 @@ web/wp
 .env
 
 # Composer
-vendor/*
-!vendor/.gitkeep
+/vendor
 
 # Eclipse project files
 .classpath
@@ -26,3 +26,6 @@ vendor/*
 *.ipr
 *.iws
 .idea/
+
+# WP Plugins
+web/app/sunrise.php

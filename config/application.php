@@ -17,7 +17,6 @@ Env::init();
 $dotenv = new Dotenv\Dotenv($root_dir);
 if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
-    $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL']);
 }
 
 /**
@@ -35,8 +34,13 @@ if (file_exists($env_config)) {
 /**
  * URLs
  */
-define('WP_HOME', env('WP_HOME'));
-define('WP_SITEURL', env('WP_SITEURL'));
+if (array_key_exists('HTTP_X_FORWARDED_PROTO',$_SERVER) && $_SERVER["HTTP_X_FORWARDED_PROTO"] == 'https') $_SERVER['HTTPS'] = 'on';
+$_http_host_schema = array_key_exists('HTTPS',$_SERVER) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
+$_http_host_name = array_key_exists('HTTP_HOST',$_SERVER) ? $_SERVER['HTTP_HOST'] : 'localhost';
+$_server_http_url = "$_http_host_schema://$_http_host_name";
+
+define('WP_HOME', env('WP_HOME') ?: "$_server_http_url");
+define('WP_SITEURL', env('WP_SITEURL') ?: "$_server_http_url/wp");
 
 /**
  * Custom Content Directory
@@ -44,6 +48,11 @@ define('WP_SITEURL', env('WP_SITEURL'));
 define('CONTENT_DIR', '/app');
 define('WP_CONTENT_DIR', $webroot_dir . CONTENT_DIR);
 define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
+
+/**
+ * Cache
+ */
+define('WP_CACHE', env('WP_CACHE'));
 
 /**
  * DB settings
@@ -74,6 +83,70 @@ define('NONCE_SALT', env('NONCE_SALT'));
 define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
+
+/**
+ * Multi Site
+ *
+ * If your Multisite is running on multiple domains
+ * f.ex.: www.example.com main domain and www.subexample.com (instead of sub.example.com) as sub domain
+ * use $_SERVER[ 'HTTP_HOST' ] instead of WP_MULTISITE_MAIN_DOMAIN in DOMAIN_CURRENT_SITE:
+ * define( 'DOMAIN_CURRENT_SITE', $_SERVER[ 'HTTP_HOST' ]  );
+ *
+ * Without this, logins will only work in the DOMAIN_CURRENT_SITE.
+ * Reauth is required on all sites in the network after this.
+ */
+define('WP_ALLOW_MULTISITE', env('WP_ALLOW_MULTISITE'));
+if (env('WP_MULTISITE_MAIN_DOMAIN')) {
+	define('MULTISITE', true);
+	define('SUBDOMAIN_INSTALL', true);
+	define('DOMAIN_CURRENT_SITE', env('WP_MULTISITE_MAIN_DOMAIN'));
+	define('PATH_CURRENT_SITE', '/');
+	define('SITE_ID_CURRENT_SITE', 1);
+	define('BLOG_ID_CURRENT_SITE', 1);
+	define('SUNRISE', true);
+}
+
+/**
+ * Heroku - JawsDB
+ */
+$env = getenv('JAWSDB_URL');
+if ( $env ) {
+	$url = parse_url($env);
+	putenv(sprintf('DB_HOST=%s', $url['host']));
+	if ( array_key_exists('port', $url) ) {
+		putenv(sprintf('DB_PORT=%s', $url['port']));
+	}
+	putenv(sprintf('DB_USER=%s', $url['user']));
+	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
+	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+} else {
+	if (!getenv('DB_HOST')) {
+		putenv('DB_HOST=localhost');
+	}
+	if (!getenv('DB_USER')) {
+		putenv('DB_USER=root');
+	}
+}
+
+/**
+ * Heroku - ClearDb
+ */
+$env = getenv('CLEARDB_DATABASE_URL');
+if ( $env ) {
+	$url = parse_url($env);
+	putenv(sprintf('DB_HOST=%s', $url['host']));
+	putenv(sprintf('DB_PORT=%s', $url['port']));
+	putenv(sprintf('DB_USER=%s', $url['user']));
+	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
+	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+} else {
+	if (!getenv('DB_HOST')) {
+		putenv('DB_HOST=localhost');
+	}
+	if (!getenv('DB_USER')) {
+		putenv('DB_USER=root');
+	}
+}
 
 /**
  * Bootstrap WordPress

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+export WP_CACHE=false
+cd web/wp
+php wp-cron.php

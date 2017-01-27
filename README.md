@@ -10,8 +10,8 @@ This project is a template for installing and running [WordPress](http://wordpre
 This project also uses a modern boilerplate for easy management of plugins. [Bedrock](https://roots.io/bedrock/) is a modern WordPress stack that helps you get started with the best development tools and project structure.
 
 ## Technology
- * WordPress 7.1
- * Bedrock 1.7.4
+ * WordPress 4.7.2
+ * Bedrock 1.7.5
 
 ## Table of Contents
 - [Getting Started](#gettingstarted)
