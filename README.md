@@ -1,4 +1,5 @@
 # WordPress - Heroku Template
+[![Build Status](https://travis-ci.org/PhilippHeuer/wordpress-heroku.svg?branch=master)](https://travis-ci.org/PhilippHeuer/wordpress-heroku)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ea24e1ba7dbf4845b94ddb23929b0fd1)](https://www.codacy.com/app/PhilippHeuer/wordpress-heroku?utm_source=github.com&utm_medium=referral&utm_content=PhilippHeuer/wordpress-heroku&utm_campaign=badger)
 [![Discord](https://img.shields.io/badge/Join-Discord-7289DA.svg?style=flat-square)](https://discord.gg/JqUCaqY)
 [![Deploy](https://img.shields.io/badge/Deploy-Heroku-7056BF.svg?style=flat-square)](https://heroku.com/deploy)
@@ -10,7 +11,7 @@ This project is a template for installing and running [WordPress](http://wordpre
 
 This project also uses a modern boilerplate for easy management of plugins. [Bedrock](https://roots.io/bedrock/) is a modern WordPress stack that helps you get started with the best development tools and project structure.
 
-The heroku configuraiton in this project only uses free resources. You can upgrade those after deployment if needed.
+The heroku configuration in this project only uses free resources, but you can upgrade them after deployment.
 
 ## Technology
  * WordPress 4.7.2
