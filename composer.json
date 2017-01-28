@@ -1,5 +1,5 @@
 {
-  "name": "philippheuer/wordpress4heroku",
+  "name": "philippheuer/wordpress-heroku",
   "type": "project",
   "license": "MIT",
   "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",

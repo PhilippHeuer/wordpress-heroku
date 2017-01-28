@@ -23,38 +23,38 @@ if (file_exists($root_dir . '/.env')) {
  * Env - Default Values
  */
 if (!getenv('DB_HOST')) {
-	putenv('DB_HOST=localhost');
+    putenv('DB_HOST=localhost');
 }
 if (!getenv('DB_USER')) {
-	putenv('DB_USER=root');
+    putenv('DB_USER=root');
 }
 
 /**
  * Intercept Env - Heroku - JawsDB
  */
 $env = getenv('JAWSDB_MARIA_URL');
-if ( $env ) {
-	$url = parse_url($env);
-	putenv(sprintf('DB_HOST=%s', $url['host']));
-	if ( array_key_exists('port', $url) ) {
-		putenv(sprintf('DB_PORT=%s', $url['port']));
-	}
-	putenv(sprintf('DB_USER=%s', $url['user']));
-	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+if ($env) {
+    $url = parse_url($env);
+    putenv(sprintf('DB_HOST=%s', $url['host']));
+    if ( array_key_exists('port', $url) ) {
+        putenv(sprintf('DB_PORT=%s', $url['port']));
+    }
+    putenv(sprintf('DB_USER=%s', $url['user']));
+    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
+    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
 }
 
 /**
  * Intercept Env - Heroku - ClearDb
  */
 $env = getenv('CLEARDB_DATABASE_URL');
-if ( $env ) {
-	$url = parse_url($env);
-	putenv(sprintf('DB_HOST=%s', $url['host']));
-	putenv(sprintf('DB_PORT=%s', $url['port']));
-	putenv(sprintf('DB_USER=%s', $url['user']));
-	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+if ($env) {
+    $url = parse_url($env);
+    putenv(sprintf('DB_HOST=%s', $url['host']));
+    putenv(sprintf('DB_PORT=%s', $url['port']));
+    putenv(sprintf('DB_USER=%s', $url['user']));
+    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
+    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
 }
 
 /**
@@ -63,8 +63,7 @@ if ( $env ) {
  */
 define('WP_ENV', env('WP_ENV') ?: 'production');
 
-$env_config = __DIR__ . '/environments/' . WP_ENV . '.php';
-
+$env_config = __DIR__.'/environments/'.WP_ENV.'.php';
 if (file_exists($env_config)) {
     require_once $env_config;
 }
@@ -72,13 +71,15 @@ if (file_exists($env_config)) {
 /**
  * URLs
  */
-if (array_key_exists('HTTP_X_FORWARDED_PROTO',$_SERVER) && $_SERVER["HTTP_X_FORWARDED_PROTO"] == 'https') $_SERVER['HTTPS'] = 'on';
-$_http_host_schema = array_key_exists('HTTPS',$_SERVER) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
-$_http_host_name = array_key_exists('HTTP_HOST',$_SERVER) ? $_SERVER['HTTP_HOST'] : 'localhost';
-$_server_http_url = "$_http_host_schema://$_http_host_name";
+if (array_key_exists('HTTP_X_FORWARDED_PROTO', $_SERVER) && $_SERVER["HTTP_X_FORWARDED_PROTO"] == 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
+$_http_host_schema = array_key_exists('HTTPS', $_SERVER) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
+$_http_host_name = array_key_exists('HTTP_HOST', $_SERVER) ? $_SERVER['HTTP_HOST'] : 'localhost';
+$_server_http_url = $_http_host_schema."://".$_http_host_name;
 
-define('WP_HOME', env('WP_HOME') ?: "$_server_http_url");
-define('WP_SITEURL', env('WP_SITEURL') ?: "$_server_http_url/wp");
+define('WP_HOME', env('WP_HOME') ?: $_server_http_url);
+define('WP_SITEURL', env('WP_SITEURL') ?: $_server_http_url."/wp");
 
 /**
  * Custom Content Directory
@@ -135,13 +136,13 @@ define('DISALLOW_FILE_EDIT', true);
  */
 define('WP_ALLOW_MULTISITE', env('WP_ALLOW_MULTISITE'));
 if (env('WP_MULTISITE_MAIN_DOMAIN')) {
-	define('MULTISITE', true);
-	define('SUBDOMAIN_INSTALL', true);
-	define('DOMAIN_CURRENT_SITE', env('WP_MULTISITE_MAIN_DOMAIN'));
-	define('PATH_CURRENT_SITE', '/');
-	define('SITE_ID_CURRENT_SITE', 1);
-	define('BLOG_ID_CURRENT_SITE', 1);
-	define('SUNRISE', true);
+    define('MULTISITE', true);
+    define('SUBDOMAIN_INSTALL', true);
+    define('DOMAIN_CURRENT_SITE', env('WP_MULTISITE_MAIN_DOMAIN'));
+    define('PATH_CURRENT_SITE', '/');
+    define('SITE_ID_CURRENT_SITE', 1);
+    define('BLOG_ID_CURRENT_SITE', 1);
+    define('SUNRISE', true);
 }
 
 /**
