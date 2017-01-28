@@ -20,9 +20,19 @@ if (file_exists($root_dir . '/.env')) {
 }
 
 /**
+ * Env - Default Values
+ */
+if (!getenv('DB_HOST')) {
+	putenv('DB_HOST=localhost');
+}
+if (!getenv('DB_USER')) {
+	putenv('DB_USER=root');
+}
+
+/**
  * Intercept Env - Heroku - JawsDB
  */
-$env = getenv('JAWSDB_URL');
+$env = getenv('JAWSDB_MARIA_URL');
 if ( $env ) {
 	$url = parse_url($env);
 	putenv(sprintf('DB_HOST=%s', $url['host']));
@@ -32,13 +42,6 @@ if ( $env ) {
 	putenv(sprintf('DB_USER=%s', $url['user']));
 	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
 	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
-} else {
-	if (!getenv('DB_HOST')) {
-		putenv('DB_HOST=localhost');
-	}
-	if (!getenv('DB_USER')) {
-		putenv('DB_USER=root');
-	}
 }
 
 /**
@@ -52,13 +55,6 @@ if ( $env ) {
 	putenv(sprintf('DB_USER=%s', $url['user']));
 	putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
 	putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
-} else {
-	if (!getenv('DB_HOST')) {
-		putenv('DB_HOST=localhost');
-	}
-	if (!getenv('DB_USER')) {
-		putenv('DB_USER=root');
-	}
 }
 
 /**
