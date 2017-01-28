@@ -36,7 +36,7 @@ $env = getenv('JAWSDB_MARIA_URL');
 if ($env) {
     $url = parse_url($env);
     putenv(sprintf('DB_HOST=%s', $url['host']));
-    if ( array_key_exists('port', $url) ) {
+    if (array_key_exists('port', $url)) {
         putenv(sprintf('DB_PORT=%s', $url['port']));
     }
     putenv(sprintf('DB_USER=%s', $url['user']));
