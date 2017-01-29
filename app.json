@@ -2,8 +2,8 @@
   "name": "WordPress",
   "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
   "keywords": [
-    "wordpress",
-    "cms",
+	"wordpress",
+	"cms",
 	"bedrock",
 	"boilerplate",
 	"composer"
@@ -15,53 +15,56 @@
   },
   "stack": "cedar-14",
   "env": {
-    "WP_ENV": {
-      "description": "Set to environment (`development`, `staging`, `production`)",
-      "value": "production"
-    },
-    "AUTH_KEY": {
-      "description": "A secret key to increase security of stored information.",
-      "generator": "secret"
-    },
-    "SECURE_AUTH_KEY": {
-      "description": "A secret key to increase security of stored information.",
-      "generator": "secret"
-    },
-    "LOGGED_IN_KEY": {
-      "description": "A secret key to increase security of stored information.",
-      "generator": "secret"
-    },
-    "NONCE_KEY": {
-      "description": "A secret key to increase security of stored information.",
-      "generator": "secret"
-    },
-    "AUTH_SALT": {
-      "description": "A secret key to increase security of stored information.",
-      "generator": "secret"
-    },
-    "SECURE_AUTH_SALT": {
-      "description": "A secret key to increase security of stored information.",
-      "generator": "secret"
-    },
-    "LOGGED_IN_SALT": {
-      "description": "A secret key to increase security of stored information.",
-      "generator": "secret"
-    },
-    "NONCE_SALT": {
-      "description": "A secret key to increase security of stored information.",
-      "generator": "secret"
-    }
+	"WP_ENV": {
+	  "description": "Set to environment (`development`, `staging`, `production`)",
+	  "value": "production"
+	},
+	"AUTH_KEY": {
+	  "description": "A secret key to increase security of stored information.",
+	  "generator": "secret"
+	},
+	"SECURE_AUTH_KEY": {
+	  "description": "A secret key to increase security of stored information.",
+	  "generator": "secret"
+	},
+	"LOGGED_IN_KEY": {
+	  "description": "A secret key to increase security of stored information.",
+	  "generator": "secret"
+	},
+	"NONCE_KEY": {
+	  "description": "A secret key to increase security of stored information.",
+	  "generator": "secret"
+	},
+	"AUTH_SALT": {
+	  "description": "A secret key to increase security of stored information.",
+	  "generator": "secret"
+	},
+	"SECURE_AUTH_SALT": {
+	  "description": "A secret key to increase security of stored information.",
+	  "generator": "secret"
+	},
+	"LOGGED_IN_SALT": {
+	  "description": "A secret key to increase security of stored information.",
+	  "generator": "secret"
+	},
+	"NONCE_SALT": {
+	  "description": "A secret key to increase security of stored information.",
+	  "generator": "secret"
+	}
   },
   "formation": {
-    "web": {
-      "quantity": 1,
-      "size": "free"
-    }
+	"web": {
+	  "quantity": 1,
+	  "size": "free"
+	}
   },
   "addons": [
-    {
-      "plan": "jawsdb-maria:kitefin"
-    }
+	{
+	  "plan": "jawsdb-maria:kitefin"
+	},
+	{
+	  "plan": "sendgrid:starter"
+	}
   ],
   "buildpacks": [
 	{

@@ -25,7 +25,8 @@
 	"johnpbloch/wordpress": "4.7.2",
 	"oscarotero/env": "^1.0",
 	"roots/wp-password-bcrypt": "1.0.0",
-	"wpackagist-plugin/wordpress-mu-domain-mapping": "~0.5.5"
+	"wpackagist-plugin/wordpress-mu-domain-mapping": "~0.5.5",
+	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.10.7"
   },
   "require-dev": {
 	"heroku/heroku-buildpack-php": "*",
@@ -33,7 +34,7 @@
   },
   "extra": {
 	"installer-paths": {
-	  "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin", "wpackagist-plugin/wordpress-mu-domain-mapping"],
+	  "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin", "wpackagist-plugin/wordpress-mu-domain-mapping", "wpackagist-plugin/sendgrid-email-delivery-simplified"],
 	  "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
 	  "web/app/themes/{$name}/": ["type:wordpress-theme"]
 	},
