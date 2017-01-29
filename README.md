@@ -22,7 +22,8 @@ The heroku configuration in this project only uses free resources, but you can u
 
 ## Table of Contents
 - [Getting Started](#gettingstarted)
-- [Changelog](CHANGELOG.md)
+- [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki)
+- [Changelog](https://github.com/PhilippHeuer/wordpress-heroku/blob/master/CHANGELOG.md)
 
 ## Getting Started
 #### Method 1: Deploy using the Heroku Badge
