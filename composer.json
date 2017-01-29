@@ -3,7 +3,7 @@
   "type": "project",
   "license": "MIT",
   "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
-  "homepage": "https://github.com/PhilippHeuer/wordpress4herkou",
+  "homepage": "https://github.com/PhilippHeuer/wordpress-heroku",
   "keywords": [
 	"bedrock", "wordpress", "stack", "composer", "heroku", "wp"
   ],
@@ -26,7 +26,8 @@
 	"oscarotero/env": "^1.0",
 	"roots/wp-password-bcrypt": "1.0.0",
 	"wpackagist-plugin/wordpress-mu-domain-mapping": "~0.5.5",
-	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.10.7"
+	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.10.7",
+	"wpackagist-plugin/amazon-s3-and-cloudfront": "1.1.5"
   },
   "require-dev": {
 	"heroku/heroku-buildpack-php": "*",
@@ -35,7 +36,7 @@
   "extra": {
 	"installer-paths": {
 	  "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin", "wpackagist-plugin/wordpress-mu-domain-mapping", "wpackagist-plugin/sendgrid-email-delivery-simplified"],
-	  "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+	  "web/app/plugins/{$name}/": ["type:wordpress-plugin", "wpackagist-plugin/amazon-s3-and-cloudfront"],
 	  "web/app/themes/{$name}/": ["type:wordpress-theme"]
 	},
 	"dropin-paths": {
