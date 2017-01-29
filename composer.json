@@ -26,6 +26,7 @@
 	"oscarotero/env": "^1.0",
 	"roots/wp-password-bcrypt": "1.0.0",
 	"wpackagist-plugin/wordpress-mu-domain-mapping": "~0.5.5",
+	"wpackagist-plugin/all-in-one-wp-security-and-firewall": "4.2.5",
 	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.10.7",
 	"wpackagist-plugin/amazon-web-services": "1.0.1",
 	"wpackagist-plugin/amazon-s3-and-cloudfront": "1.1.5"
@@ -36,9 +37,20 @@
   },
   "extra": {
 	"installer-paths": {
-	  "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin", "wpackagist-plugin/wordpress-mu-domain-mapping", "wpackagist-plugin/sendgrid-email-delivery-simplified", "wpackagist-plugin/amazon-web-services"],
-	  "web/app/plugins/{$name}/": ["type:wordpress-plugin", "wpackagist-plugin/amazon-s3-and-cloudfront"],
-	  "web/app/themes/{$name}/": ["type:wordpress-theme"]
+	  "web/app/mu-plugins/{$name}/": [
+		"type:wordpress-muplugin",
+		"wpackagist-plugin/wordpress-mu-domain-mapping",
+		"wpackagist-plugin/all-in-one-wp-security-and-firewall",
+		"wpackagist-plugin/sendgrid-email-delivery-simplified",
+		"wpackagist-plugin/amazon-web-services",
+		"wpackagist-plugin/amazon-s3-and-cloudfront"
+	  ],
+	  "web/app/plugins/{$name}/": [
+		"type:wordpress-plugin"
+	  ],
+	  "web/app/themes/{$name}/": [
+		"type:wordpress-theme"
+	  ]
 	},
 	"dropin-paths": {
 	  "web/app/": [

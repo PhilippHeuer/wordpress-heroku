@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2aae2a6851750a3f7ba3eca3fadcf661",
+    "content-hash": "6cf3d7a47a7326cac533ee552e17fd38",
     "packages": [
         {
             "name": "composer/installers",
@@ -389,6 +389,26 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/all-in-one-wp-security-and-firewall",
+            "version": "4.2.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/all-in-one-wp-security-and-firewall/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/all-in-one-wp-security-and-firewall.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/all-in-one-wp-security-and-firewall/"
         },
         {
             "name": "wpackagist-plugin/amazon-s3-and-cloudfront",
