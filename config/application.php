@@ -30,7 +30,7 @@ if (!getenv('DB_USER')) {
 }
 
 /**
- * Intercept Env - Heroku - JawsDB
+ * Configuration - Database: Heroku JawsDb
  */
 $env = getenv('JAWSDB_MARIA_URL');
 if ($env) {
@@ -45,7 +45,7 @@ if ($env) {
 }
 
 /**
- * Intercept Env - Heroku - ClearDb
+ * Configuration - Database: Heroku ClearDb
  */
 $env = getenv('CLEARDB_DATABASE_URL');
 if ($env) {
@@ -58,15 +58,16 @@ if ($env) {
 }
 
 /**
- * Env: AWS
+ * Configuration - Plugin: WP Offload Amazon S3
+ * @url: https://deliciousbrains.com/wp-offload-s3/
  */
 $env = getenv('AWS_ACCESS_KEY_ID');
-if($env) {
-    putenv(sprintf('DBI_AWS_ACCESS_KEY_ID=%s', $env));
+if ($env) {
+    define('DBI_AWS_ACCESS_KEY_ID', env('AWS_ACCESS_KEY_ID'));
 }
 $env = getenv('AWS_SECRET_ACCESS_KEY');
-if($env) {
-    putenv(sprintf('DBI_AWS_SECRET_ACCESS_KEY=%s', $env));
+if ($env) {
+    define('DBI_AWS_SECRET_ACCESS_KEY', env('AWS_SECRET_ACCESS_KEY'));
 }
 
 /**
