@@ -58,6 +58,18 @@ if ($env) {
 }
 
 /**
+ * Env: AWS
+ */
+$env = getenv('AWS_ACCESS_KEY_ID');
+if($env) {
+    putenv(sprintf('DBI_AWS_ACCESS_KEY_ID=%s', $env));
+}
+$env = getenv('AWS_SECRET_ACCESS_KEY');
+if($env) {
+    putenv(sprintf('DBI_AWS_SECRET_ACCESS_KEY=%s', $env));
+}
+
+/**
  * Set up our global environment constant and load its config first
  * Default: production
  */
