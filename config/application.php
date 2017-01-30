@@ -72,13 +72,17 @@ if ($env) {
 
 /**
  * Configuration - Plugin: Sendgrid
+ * @url: https://wordpress.org/plugins/sendgrid-email-delivery-simplified/
  */
 if (getenv('SENDGRID_USERNAME') && getenv('SENDGRID_PASSWORD')) {
     // Auth method ('apikey' or 'credentials')
     define('SENDGRID_AUTH_METHOD', 'credentials');
-} else if(getenv('SENDGRID_API_KEY')) {
+    define('SENDGRID_USERNAME', getenv('SENDGRID_USERNAME'));
+    define('SENDGRID_PASSWORD', getenv('SENDGRID_PASSWORD'));
+} else if (getenv('SENDGRID_API_KEY')) {
     // Auth method ('apikey' or 'credentials')
     define('SENDGRID_AUTH_METHOD', 'apikey');
+    define('SENDGRID_API_KEY', getenv('SENDGRID_API_KEY'));
 }
 
 /**
