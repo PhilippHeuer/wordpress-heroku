@@ -95,6 +95,7 @@ $ heroku addons:create jawsdb-maria:kitefin
 $ heroku addons:create cleardb:ignite
 ```
  - Custom Database
+
 To use your own private database, you can provide a connection string in environment variables.
 You need to open your Application in the Heroku Dashboard and visit Settings -> Reveal Config Vars.
 You need to set the Key to "CUSTOM_DB_URL" and provide a connection string in the following format:
@@ -118,12 +119,11 @@ Congratulations, you have successfully installed WordPress on Heroku.
 Please read the [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki) on how to customize your installation.
 
 ## Features
- - [X] Better folder structure
- - [X] Dependency management with [Composer](http://getcomposer.org)
- - [X] Easy WordPress configuration with environment specific files
- - [X] Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
- - [X] Autoloader for mu-plugins (use regular plugins as mu-plugins)
- - [X] Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
+ - [x] Better folder structure
+ - [x] Dependency management with [Composer](http://getcomposer.org)
+ - [x] Easy WordPress configuration with environment variables from Heroku
+ - [x] Autoloader for mu-plugins (use regular plugins as mu-plugins)
+ - [x] Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
 ## Requirements
 
