@@ -71,6 +71,17 @@ if ($env) {
 }
 
 /**
+ * Configuration - Plugin: Sendgrid
+ */
+if (getenv('SENDGRID_USERNAME') && getenv('SENDGRID_PASSWORD')) {
+    // Auth method ('apikey' or 'credentials')
+    define('SENDGRID_AUTH_METHOD', 'credentials');
+} else if(getenv('SENDGRID_API_KEY')) {
+    // Auth method ('apikey' or 'credentials')
+    define('SENDGRID_AUTH_METHOD', 'apikey');
+}
+
+/**
  * Set up our global environment constant and load its config first
  * Default: production
  */
