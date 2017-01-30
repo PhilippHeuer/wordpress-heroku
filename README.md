@@ -5,7 +5,7 @@
 [![Discord](https://img.shields.io/badge/Join-Discord-7289DA.svg?style=flat-square)](https://discord.gg/JqUCaqY)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-0.1-red.svg)]()
+[![Version](https://img.shields.io/badge/Version-0.1-red.svg)](https://github.com/PhilippHeuer/wordpress-heroku)
 
 [![Deploy](https://img.shields.io/badge/Deploy-Heroku-7056BF.svg?style=flat-square)](https://heroku.com/deploy)
 
@@ -115,6 +115,9 @@ Now you can open your app using the following command. This will open a new wind
 ```bash
 $ heroku open
 ```
+
+Congratulations, you have successfully installed WordPress on Heroku.
+Please read the [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki) on how to customize your installation.
 
 ## Features
  - [X] Better folder structure
