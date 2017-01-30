@@ -25,7 +25,6 @@
 	"johnpbloch/wordpress": "4.7.2",
 	"oscarotero/env": "^1.0",
 	"roots/wp-password-bcrypt": "1.0.0",
-	"wpackagist-plugin/wordpress-mu-domain-mapping": "~0.5.5",
 	"wpackagist-plugin/wordfence": "6.3.0",
 	"wpackagist-plugin/nginx-helper": "1.9.9",
 	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.10.7",

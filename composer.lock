@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "44fc722dcbddc2fe58274f461a1f80b3",
+    "content-hash": "99644a3b12687793e4fb35c7547b5195",
     "packages": [
         {
             "name": "composer/installers",
@@ -489,26 +489,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordfence/"
-        },
-        {
-            "name": "wpackagist-plugin/wordpress-mu-domain-mapping",
-            "version": "0.5.5.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-mu-domain-mapping/",
-                "reference": "tags/0.5.5.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-mu-domain-mapping.0.5.5.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wordpress-mu-domain-mapping/"
         }
     ],
     "packages-dev": [

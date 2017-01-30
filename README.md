@@ -103,6 +103,20 @@ You need to set the Key to "CUSTOM_DB_URL" and provide a connection string in th
 mysql://user:password@host:port/databaseName
 ```
 
+###### - Persistent Storage
+The Heroku Filesystem is not persistend, which means that all media uploads
+will be gone after a while. Therefore you need to configure a persistent storage.
+Here are some options:
+
+ - Amazon S3
+You need create a Amazon S3 bucket and access credentials.
+Those access credentials are provided using the Heroku Dashboard -> App -> Settings -> Config vars.
+```bash
+AWS_ACCESS_KEY_ID=SECRET
+AWS_SECRET_ACCESS_KEY=SECRET
+```
+After installing WordPress you need to enable the two Amazon Plugins in the Control Panel.
+
 ###### Deploy / Update
 Now you can deploy your project to heroku (or when you update your application):
 ```bash
@@ -117,6 +131,8 @@ $ heroku open
 
 Congratulations, you have successfully installed WordPress on Heroku.
 Please read the [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki) on how to customize your installation.
+
+If you had any problems, you are welcome to join the Discord Server to talk about your issues.
 
 ## Features
  - [x] Better folder structure
