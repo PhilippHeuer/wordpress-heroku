@@ -58,6 +58,19 @@ if ($env) {
 }
 
 /**
+ * Configuration - Database: Custom
+ */
+$env = getenv('CUSTOM_DB_URL');
+if ($env) {
+    $url = parse_url($env);
+    putenv(sprintf('DB_HOST=%s', $url['host']));
+    putenv(sprintf('DB_PORT=%s', $url['port']));
+    putenv(sprintf('DB_USER=%s', $url['user']));
+    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
+    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+}
+
+/**
  * Configuration - Plugin: WP Offload Amazon S3
  * @url: https://deliciousbrains.com/wp-offload-s3/
  */
