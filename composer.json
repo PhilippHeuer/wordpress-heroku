@@ -8,7 +8,11 @@
 	"bedrock", "wordpress", "stack", "composer", "heroku", "wp"
   ],
   "config": {
-	"preferred-install": "dist"
+	"preferred-install": "dist",
+	"platform":{
+	  "php": "7.0",
+	  "ext-gettext": "1.0"
+	}
   },
   "repositories": [
 	{
@@ -23,13 +27,14 @@
 	"vlucas/phpdotenv": "^2.0.1",
 	"koodimonni/composer-dropin-installer": "1.1.0",
 	"johnpbloch/wordpress": "4.7.2",
+	"wp-cli/wp-cli" : "1.0.0",
 	"oscarotero/env": "^1.0",
 	"roots/wp-password-bcrypt": "1.0.0",
 	"wpackagist-plugin/wordfence": "6.3.0",
+	"wpackagist-plugin/all-in-one-seo-pack": "2.3.11.3",
 	"wpackagist-plugin/nginx-helper": "1.9.9",
 	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.10.7",
-	"wpackagist-plugin/amazon-web-services": "1.0.1",
-	"wpackagist-plugin/amazon-s3-and-cloudfront": "1.1.5"
+	"humanmade/s3-uploads": "2.0.0-beta2"
   },
   "require-dev": {
 	"heroku/heroku-buildpack-php": "*",
@@ -38,24 +43,16 @@
   "extra": {
 	"installer-paths": {
 	  "web/app/mu-plugins/{$name}/": [
-		"type:wordpress-muplugin",
-		"wpackagist-plugin/wordpress-mu-domain-mapping",
 		"wpackagist-plugin/wordfence",
 		"wpackagist-plugin/nginx-helper",
-		"wpackagist-plugin/sendgrid-email-delivery-simplified"
+		"wpackagist-plugin/sendgrid-email-delivery-simplified",
+		"humanmade/s3-uploads"
 	  ],
 	  "web/app/plugins/{$name}/": [
-		"type:wordpress-plugin",
-		"wpackagist-plugin/amazon-web-services",
-		"wpackagist-plugin/amazon-s3-and-cloudfront"
+		"wpackagist-plugin/all-in-one-seo-pack"
 	  ],
 	  "web/app/themes/{$name}/": [
 		"type:wordpress-theme"
-	  ]
-	},
-	"dropin-paths": {
-	  "web/app/": [
-		"package:wpackagist-plugin/wordpress-mu-domain-mapping:sunrise.php"
 	  ]
 	},
 	"wordpress-install-dir": "web/wp"

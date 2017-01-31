@@ -71,16 +71,20 @@ if ($env) {
 }
 
 /**
- * Configuration - Plugin: WP Offload Amazon S3
- * @url: https://deliciousbrains.com/wp-offload-s3/
+ * Configuration - Plugin: S3 Uploads
+ * @url: https://github.com/humanmade/S3-Uploads
  */
-$env = getenv('AWS_ACCESS_KEY_ID');
+$env = getenv('AWS_S3_URL');
 if ($env) {
-    define('DBI_AWS_ACCESS_KEY_ID', env('AWS_ACCESS_KEY_ID'));
-}
-$env = getenv('AWS_SECRET_ACCESS_KEY');
-if ($env) {
-    define('DBI_AWS_SECRET_ACCESS_KEY', env('AWS_SECRET_ACCESS_KEY'));
+    $url = parse_url($env);
+
+    define('S3_UPLOADS_AUTOENABLE', true);
+    define('S3_UPLOADS_KEY', $url['user']);
+    define('S3_UPLOADS_SECRET', $url['pass']);
+    define('S3_UPLOADS_REGION', str_replace(array('s3-', '.amazonaws.com'), array('', ''), $url['host']));
+    define('S3_UPLOADS_BUCKET', ltrim($url['path'], '/'));
+} else {
+    define('S3_UPLOADS_AUTOENABLE', false);
 }
 
 /**
