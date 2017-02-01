@@ -86,6 +86,8 @@ if ($env) {
 } else {
     define('S3_UPLOADS_AUTOENABLE', false);
 }
+// S3 Uploads - Cache will expire after 30 days
+define( 'S3_UPLOADS_HTTP_CACHE_CONTROL', 30 * 24 * 60 * 60 );
 
 /**
  * Configuration - Plugin: Sendgrid
@@ -100,6 +102,13 @@ if (getenv('SENDGRID_USERNAME') && getenv('SENDGRID_PASSWORD')) {
     // Auth method ('apikey' or 'credentials')
     define('SENDGRID_AUTH_METHOD', 'apikey');
     define('SENDGRID_API_KEY', getenv('SENDGRID_API_KEY'));
+}
+
+/**
+ * Configuration - Plugin: Redis
+ */
+if (getenv('REDIS_URL')) {
+    
 }
 
 /**

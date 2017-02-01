@@ -156,6 +156,14 @@ After installing WordPress you need to enable the two Amazon Plugins in the Cont
 
 --------
 
+###### Cache (Optional)
+
+```bash
+$ heroku addons:create heroku-redis:hobby-dev
+```
+
+--------
+
 ###### Deploy / Update
 Now you can deploy your project to heroku (or when you update your application):
 ```bash
