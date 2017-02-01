@@ -50,8 +50,6 @@
 		"wpackagist-plugin/wordfence",
 		"wpackagist-plugin/nginx-helper",
 		"wpackagist-plugin/sendgrid-email-delivery-simplified",
-		"wpackagist-plugin/batcache",
-		"wpackagist-plugin/redis-cache",
 		"humanmade/s3-uploads"
 	  ],
 	  "web/app/plugins/{$name}/": [
