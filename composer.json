@@ -60,13 +60,15 @@
 		"type:wordpress-theme"
 	  ]
 	},
+	"dropin-paths": {
+	  "web/app": [
+		"package:wpackagist-plugin/redis-cache:includes/object-cache.php",
+		"package:wpackagist-plugin/batcache:advanced-cache.php"
+	  ]
+	},
 	"wordpress-install-dir": "web/wp"
   },
   "scripts": {
-	"post-install-cmd": [
-	  "ln -s web/app/mu-plugins/redis-cache/includes/object-cache.php web/wp/wp-content/object-cache.php",
-	  "ln -s web/app/mu-plugins/batcache/advanced-cache.php web/wp/wp-content/advanced-cache.php"
-	],
 	"test": [
 	  "vendor/bin/phpcs"
 	]
