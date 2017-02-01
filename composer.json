@@ -64,8 +64,8 @@
   },
   "scripts": {
 	"post-install-cmd": [
-	  "ln -s web/app/mu-plugins/redis-cache/includes/object-cache.php web/app/object-cache.php",
-	  "ln -s web/app/mu-plugins/batcache/advanced-cache.php web/app/advanced-cache.php"
+	  "ln -s web/app/mu-plugins/redis-cache/includes/object-cache.php web/wp/wp-content/object-cache.php",
+	  "ln -s web/app/mu-plugins/batcache/advanced-cache.php web/wp/wp-content/advanced-cache.php"
 	],
 	"test": [
 	  "vendor/bin/phpcs"
