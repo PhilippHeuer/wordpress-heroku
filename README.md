@@ -157,7 +157,10 @@ After installing WordPress you need to enable the two Amazon Plugins in the Cont
 --------
 
 ###### Cache (Optional)
+Redis caching can improve your application performance by x20 or even more.
+It saves the results of sql queries in ram memory, therefore reducing loading times.
 
+You only need to attach the Heroku Redis addon to your application.
 ```bash
 $ heroku addons:create heroku-redis:hobby-dev
 ```
