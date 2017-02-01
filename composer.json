@@ -60,7 +60,7 @@
 	  ]
 	},
 	"dropin-paths": {
-	  "web/wp/wp-content": [
+	  "web/app": [
 		"package:wpackagist-plugin/redis-cache:includes/object-cache.php"
 	  ]
 	},

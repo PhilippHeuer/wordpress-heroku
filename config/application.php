@@ -191,7 +191,7 @@ define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
 /**
  * Cache
  */
-define('WP_CACHE', env('WP_CACHE'));
+define('WP_CACHE', getenv('WP_CACHE') ?: false);
 
 /**
  * DB settings
