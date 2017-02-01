@@ -32,84 +32,122 @@ if (!getenv('DB_USER')) {
 /**
  * Configuration - Database: Heroku JawsDb
  */
-$env = getenv('JAWSDB_MARIA_URL');
-if ($env) {
-    $url = parse_url($env);
-    putenv(sprintf('DB_HOST=%s', $url['host']));
-    if (array_key_exists('port', $url)) {
-        putenv(sprintf('DB_PORT=%s', $url['port']));
+if (!empty(getenv('JAWSDB_MARIA_URL'))) {
+    $env = parse_url(getenv('JAWSDB_MARIA_URL'));
+
+    putenv(sprintf('DB_HOST=%s', $env['host']));
+    if (array_key_exists('port', $env)) {
+        putenv(sprintf('DB_PORT=%s', $env['port']));
     }
-    putenv(sprintf('DB_USER=%s', $url['user']));
-    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+    putenv(sprintf('DB_USER=%s', $env['user']));
+    putenv(sprintf('DB_PASSWORD=%s', $env['pass']));
+    putenv(sprintf('DB_NAME=%s', ltrim($env['path'], '/')));
+
+    unset($env);
 }
 
 /**
  * Configuration - Database: Heroku ClearDb
  */
-$env = getenv('CLEARDB_DATABASE_URL');
-if ($env) {
-    $url = parse_url($env);
-    putenv(sprintf('DB_HOST=%s', $url['host']));
-    putenv(sprintf('DB_PORT=%s', $url['port']));
-    putenv(sprintf('DB_USER=%s', $url['user']));
-    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+if (!empty(getenv('CLEARDB_DATABASE_URL'))) {
+    $env = parse_url(getenv('CLEARDB_DATABASE_URL'));
+
+    putenv(sprintf('DB_HOST=%s', $env['host']));
+    if (array_key_exists('port', $env)) {
+        putenv(sprintf('DB_PORT=%s', $env['port']));
+    }
+    putenv(sprintf('DB_USER=%s', $env['user']));
+    putenv(sprintf('DB_PASSWORD=%s', $env['pass']));
+    putenv(sprintf('DB_NAME=%s', ltrim($env['path'], '/')));
+
+    unset($env);
 }
 
 /**
  * Configuration - Database: Custom
  */
-$env = getenv('CUSTOM_DB_URL');
-if ($env) {
-    $url = parse_url($env);
-    putenv(sprintf('DB_HOST=%s', $url['host']));
-    putenv(sprintf('DB_PORT=%s', $url['port']));
-    putenv(sprintf('DB_USER=%s', $url['user']));
-    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
+if (!empty(getenv('CUSTOM_DB_URL'))) {
+    $env = parse_url(getenv('CUSTOM_DB_URL'));
+
+    putenv(sprintf('DB_HOST=%s', $env['host']));
+    if (array_key_exists('port', $env)) {
+        putenv(sprintf('DB_PORT=%s', $env['port']));
+    }
+    putenv(sprintf('DB_USER=%s', $env['user']));
+    putenv(sprintf('DB_PASSWORD=%s', $env['pass']));
+    putenv(sprintf('DB_NAME=%s', ltrim($env['path'], '/')));
+
+    unset($env);
 }
 
 /**
  * Configuration - Plugin: S3 Uploads
  * @url: https://github.com/humanmade/S3-Uploads
  */
-$env = getenv('AWS_S3_URL');
-if ($env) {
-    $url = parse_url($env);
+if (!empty(getenv('AWS_S3_URL'))) {
+    $env = parse_url(getenv('AWS_S3_URL'));
 
     define('S3_UPLOADS_AUTOENABLE', true);
-    define('S3_UPLOADS_KEY', $url['user']);
-    define('S3_UPLOADS_SECRET', $url['pass']);
-    define('S3_UPLOADS_REGION', str_replace(array('s3-', '.amazonaws.com'), array('', ''), $url['host']));
-    define('S3_UPLOADS_BUCKET', ltrim($url['path'], '/'));
+    define('S3_UPLOADS_KEY', $env['user']);
+    define('S3_UPLOADS_SECRET', $env['pass']);
+    define('S3_UPLOADS_REGION', str_replace(array('s3-', '.amazonaws.com'), array('', ''), $env['host']));
+    define('S3_UPLOADS_BUCKET', ltrim($env['path'], '/'));
+
+    unset($env);
 } else {
     define('S3_UPLOADS_AUTOENABLE', false);
 }
+
 // S3 Uploads - Cache will expire after 30 days
-define( 'S3_UPLOADS_HTTP_CACHE_CONTROL', 30 * 24 * 60 * 60 );
+define('S3_UPLOADS_HTTP_CACHE_CONTROL', 30 * 24 * 60 * 60);
 
 /**
  * Configuration - Plugin: Sendgrid
  * @url: https://wordpress.org/plugins/sendgrid-email-delivery-simplified/
  */
-if (getenv('SENDGRID_USERNAME') && getenv('SENDGRID_PASSWORD')) {
-    // Auth method ('apikey' or 'credentials')
+if (!empty(getenv('SENDGRID_USERNAME')) && !empty(getenv('SENDGRID_PASSWORD'))) {
+    // Auth method ('credentials')
     define('SENDGRID_AUTH_METHOD', 'credentials');
     define('SENDGRID_USERNAME', getenv('SENDGRID_USERNAME'));
     define('SENDGRID_PASSWORD', getenv('SENDGRID_PASSWORD'));
-} else if (getenv('SENDGRID_API_KEY')) {
-    // Auth method ('apikey' or 'credentials')
+} else if (!empty(getenv('SENDGRID_API_KEY'))) {
+    // Auth method ('apikey')
     define('SENDGRID_AUTH_METHOD', 'apikey');
     define('SENDGRID_API_KEY', getenv('SENDGRID_API_KEY'));
 }
 
 /**
  * Configuration - Plugin: Redis
+ * @url: https://wordpress.org/plugins/redis-cache/
  */
-if (getenv('REDIS_URL')) {
-    
+if (!empty(getenv('REDIS_URL'))) {
+    $env = parse_url(getenv('REDIS_URL'));
+
+    putenv('WP_CACHE=true');
+    define('WP_REDIS_CLIENT', 'predis');
+    define('WP_REDIS_SCHEME', $env['scheme']);
+    define('WP_REDIS_HOST', $env['host']);
+    define('WP_REDIS_PORT', $env['port']);
+    define('WP_REDIS_PASSWORD', $env['pass']);
+
+    // 28 Days
+    define('WP_REDIS_MAXTTL', 2419200);
+
+    unset($env);
 }
+
+/**
+ * Configuration - Plugin: Batcache
+ * @url: https://wordpress.org/plugins/batcache/
+ */
+$batcache = array(
+    'debug' => false,
+    'debug_header' => true,
+    'cache_control' => true,
+    'use_stale' => true,
+    'cache_redirects' => true,
+    'group' => 'batcache',
+);
 
 /**
  * Configuration - Worker: IronWorker for WP CronJobs
@@ -183,7 +221,12 @@ define('NONCE_SALT', env('NONCE_SALT'));
  */
 define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISALLOW_FILE_EDIT', true);
+define('DISALLOW_FILE_MODS', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
+
+// Enforce SSL for Login/Admin
+define('FORCE_SSL_LOGIN', true);
+define('FORCE_SSL_ADMIN', true);
 
 /**
  * Multi Site

@@ -63,6 +63,9 @@
 	},
 	{
 	  "plan": "scheduler:standard"
+	},
+	{
+	  "plan": "heroku-redis:hobby-dev"
 	}
   ],
   "buildpacks": [
