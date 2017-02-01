@@ -15,16 +15,24 @@ This project is a template for installing and running [WordPress](http://wordpre
 
 This project also uses a modern boilerplate for easy management of plugins. [Bedrock](https://roots.io/bedrock/) is a modern WordPress stack that helps you get started with the best development tools and project structure.
 
-The heroku configuration in this project only uses free resources, but you can upgrade them after deployment.
+The Heroku configuration in this project only uses free resources, but you can upgrade them after deployment.
 
 ## Dependency Versions
  * WordPress 4.7.2 (latest)
  * Bedrock 1.7.5 (latest)
 
 ## Table of Contents
+- [Features](#features)
 - [Getting Started](#gettingstarted)
 - [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki)
 - [Changelog](https://github.com/PhilippHeuer/wordpress-heroku/blob/master/CHANGELOG.md)
+
+## Features
+ - [x] Better folder structure
+ - [x] Dependency management with [Composer](http://getcomposer.org)
+ - [x] Easy WordPress configuration with environment variables from Heroku
+ - [x] Autoloader for mu-plugins (use regular plugins as mu-plugins)
+ - [x] Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
 ## Getting Started
 #### Method 1: Deploy using the Heroku Badge (suggested for evaluation)
@@ -37,7 +45,7 @@ This also works if you fork your own project to work on your site.
 Heroku offers a command line interface for easy deployments.
 
 First you clone the repository onto your local drive, because you can only
-deploy to heroku using git.
+deploy to Heroku using git.
 ```bash
 $ git clone https://github.com/PhilippHeuer/wordpress-heroku.git
 ```
@@ -47,7 +55,9 @@ Now you can create a new application on heroku and link it to your current git r
 $ heroku create
 ```
 
-###### Configuration
+--------
+
+###### Configuration (Required)
 You need to generate secrets to make your WordPress installation more secure:
 You can generate random values using the [wordpress secret key api](https://api.wordpress.org/secret-key/1.1/salt/).
 
@@ -77,7 +87,10 @@ $ heroku config:set \
 ```
 
 ###### Addons
-###### - SendGrid
+
+--------
+
+###### SendGrid (Optional)
 You need an extension to send emails, since Heroku doesn't support this by default.
 Please be aware that you need to provide Heroku with your credit card information to use SendGrid.
 This does not cause any costs, you can still use this addon free of charge!
@@ -85,7 +98,28 @@ This does not cause any costs, you can still use this addon free of charge!
 $ heroku addons:create sendgrid:starter
 ```
 
-###### - Database
+--------
+
+###### Worker (Optional)
+You only need to do this part, if you want to improve the site performance by
+running the wordpress cronjobs using a scheduler.
+```bash
+$ heroku addons:create scheduler:standard
+$ heroku config:set DISABLE_WP_CRON='true'
+$ heroku addons:open scheduler
+```
+The last command opens the scheduler configuration in your browser.
+Create a new task with the following options:
+
+| Option        | Value                 |
+| ------------- |:-------------:        |
+| Dyno Size     | Free                  |
+| Frequency     | Every 10 minutes      |
+| Command       | bin/cron/wordpress.sh |
+
+--------
+
+###### Database (Required)
 You can pick one of the three following options:
  - Maria Db
 ```bash
@@ -104,7 +138,9 @@ You need to set the Key to "CUSTOM_DB_URL" and provide a connection string in th
 mysql://user:password@host:port/databaseName
 ```
 
-###### - Persistent Storage
+--------
+
+###### Persistent Storage (Optional)
 The Heroku Filesystem is not persistend, which means that all media uploads
 will be gone after a while. Therefore you need to configure a persistent storage.
 Here are some options:
@@ -118,11 +154,15 @@ AWS_SECRET_ACCESS_KEY=SECRET
 ```
 After installing WordPress you need to enable the two Amazon Plugins in the Control Panel.
 
+--------
+
 ###### Deploy / Update
 Now you can deploy your project to heroku (or when you update your application):
 ```bash
 $ git push heroku master
 ```
+
+--------
 
 ###### Open Application
 Now you can open your app using the following command. This will open a new window in your browser.
@@ -134,15 +174,3 @@ Congratulations, you have successfully installed WordPress on Heroku.
 Please read the [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki) on how to customize your installation.
 
 If you had any problems, you are welcome to join the Discord Server to talk about your issues.
-
-## Features
- - [x] Better folder structure
- - [x] Dependency management with [Composer](http://getcomposer.org)
- - [x] Easy WordPress configuration with environment variables from Heroku
- - [x] Autoloader for mu-plugins (use regular plugins as mu-plugins)
- - [x] Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
-
-## Requirements
-
-* PHP >= 7.0
-* Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)

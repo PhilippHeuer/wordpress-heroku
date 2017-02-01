@@ -103,6 +103,14 @@ if (getenv('SENDGRID_USERNAME') && getenv('SENDGRID_PASSWORD')) {
 }
 
 /**
+ * Configuration - Worker: IronWorker for WP CronJobs
+ *  Disable WP Cronjobs, because they will be run using the iron worker.
+ */
+if (getenv('IRON_WORKER_PROJECT_ID') && getenv('IRON_WORKER_TOKEN')) {
+    putenv(sprintf('DISABLE_WP_CRON=true'));
+}
+
+/**
  * Set up our global environment constant and load its config first
  * Default: production
  */
@@ -165,8 +173,8 @@ define('NONCE_SALT', env('NONCE_SALT'));
  * Custom Settings
  */
 define('AUTOMATIC_UPDATER_DISABLED', true);
-define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
+define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 
 /**
  * Multi Site

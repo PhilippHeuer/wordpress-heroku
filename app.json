@@ -15,10 +15,6 @@
   },
   "stack": "cedar-14",
   "env": {
-	"WP_ENV": {
-	  "description": "Set to environment (`development`, `staging`, `production`)",
-	  "value": "production"
-	},
 	"AUTH_KEY": {
 	  "description": "A secret key to increase security of stored information.",
 	  "generator": "secret"
@@ -64,6 +60,9 @@
 	},
 	{
 	  "plan": "sendgrid:starter"
+	},
+	{
+	  "plan": "scheduler:standard"
 	}
   ],
   "buildpacks": [
