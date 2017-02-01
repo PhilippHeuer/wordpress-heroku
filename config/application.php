@@ -34,10 +34,11 @@ if (!getenv('DB_USER')) {
  */
 function includeDirectory($dir)
 {
-    foreach (scandir($dir) as $filename)
+    foreach(scandir($dir) as $filename)
     {
         $path = $dir . '/' . $filename;
-        if (is_file($path)) {
+        if (is_file($path))
+        {
             require_once($path);
         }
     }
