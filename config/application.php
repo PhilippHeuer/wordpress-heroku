@@ -32,8 +32,10 @@ if (!getenv('DB_USER')) {
 /**
  * Load Plugin Configurations
  */
-function includeDirectory($dir) {
-    foreach (scandir($dir) as $filename) {
+function includeDirectory($dir)
+{
+    foreach (scandir($dir) as $filename)
+    {
         $path = $dir . '/' . $filename;
         if (is_file($path)) {
             require_once($path);
