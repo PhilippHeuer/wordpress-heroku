@@ -30,38 +30,17 @@ if (!getenv('DB_USER')) {
 }
 
 /**
- * Configuration - Database: Heroku JawsDb
+ * Load Plugin Configurations
  */
-if (!empty(getenv('JAWSDB_MARIA_URL'))) {
-    $env = parse_url(getenv('JAWSDB_MARIA_URL'));
-
-    putenv(sprintf('DB_HOST=%s', $env['host']));
-    if (array_key_exists('port', $env)) {
-        putenv(sprintf('DB_PORT=%s', $env['port']));
+function includeDirectory($dir) {
+    foreach (scandir($dir) as $filename) {
+        $path = $dir . '/' . $filename;
+        if (is_file($path)) {
+            require_once($path);
+        }
     }
-    putenv(sprintf('DB_USER=%s', $env['user']));
-    putenv(sprintf('DB_PASSWORD=%s', $env['pass']));
-    putenv(sprintf('DB_NAME=%s', ltrim($env['path'], '/')));
-
-    unset($env);
 }
-
-/**
- * Configuration - Database: Heroku ClearDb
- */
-if (!empty(getenv('CLEARDB_DATABASE_URL'))) {
-    $env = parse_url(getenv('CLEARDB_DATABASE_URL'));
-
-    putenv(sprintf('DB_HOST=%s', $env['host']));
-    if (array_key_exists('port', $env)) {
-        putenv(sprintf('DB_PORT=%s', $env['port']));
-    }
-    putenv(sprintf('DB_USER=%s', $env['user']));
-    putenv(sprintf('DB_PASSWORD=%s', $env['pass']));
-    putenv(sprintf('DB_NAME=%s', ltrim($env['path'], '/')));
-
-    unset($env);
-}
+includeDirectory($root_dir."/config/plugins");
 
 /**
  * Configuration - Database: Custom
@@ -79,80 +58,6 @@ if (!empty(getenv('CUSTOM_DB_URL'))) {
 
     unset($env);
 }
-
-/**
- * Configuration - Plugin: S3 Uploads
- * @url: https://github.com/humanmade/S3-Uploads
- */
-if (!empty(getenv('AWS_S3_URL'))) {
-    $env = parse_url(getenv('AWS_S3_URL'));
-
-    define('S3_UPLOADS_AUTOENABLE', true);
-    define('S3_UPLOADS_KEY', $env['user']);
-    define('S3_UPLOADS_SECRET', $env['pass']);
-    define('S3_UPLOADS_REGION', str_replace(array('s3-', '.amazonaws.com'), array('', ''), $env['host']));
-    define('S3_UPLOADS_BUCKET', ltrim($env['path'], '/'));
-
-    unset($env);
-} else {
-    define('S3_UPLOADS_AUTOENABLE', false);
-}
-
-// S3 Uploads - Cache will expire after 30 days
-define('S3_UPLOADS_HTTP_CACHE_CONTROL', 30 * 24 * 60 * 60);
-
-/**
- * Configuration - Plugin: Sendgrid
- * @url: https://wordpress.org/plugins/sendgrid-email-delivery-simplified/
- */
-if (!empty(getenv('SENDGRID_USERNAME')) && !empty(getenv('SENDGRID_PASSWORD'))) {
-    // Auth method ('credentials')
-    define('SENDGRID_AUTH_METHOD', 'credentials');
-    define('SENDGRID_USERNAME', getenv('SENDGRID_USERNAME'));
-    define('SENDGRID_PASSWORD', getenv('SENDGRID_PASSWORD'));
-} else if (!empty(getenv('SENDGRID_API_KEY'))) {
-    // Auth method ('apikey')
-    define('SENDGRID_AUTH_METHOD', 'apikey');
-    define('SENDGRID_API_KEY', getenv('SENDGRID_API_KEY'));
-}
-
-/**
- * Configuration - Plugin: Redis
- * @url: https://wordpress.org/plugins/redis-cache/
- */
-if (!empty(getenv('REDIS_URL'))) {
-    $env = parse_url(getenv('REDIS_URL'));
-
-    putenv('WP_CACHE=true');
-    define('WP_REDIS_CLIENT', 'predis');
-    define('WP_REDIS_SCHEME', $env['scheme']);
-    define('WP_REDIS_HOST', $env['host']);
-    define('WP_REDIS_PORT', $env['port']);
-    define('WP_REDIS_PASSWORD', $env['pass']);
-
-    // 28 Days
-    define('WP_REDIS_MAXTTL', 2419200);
-
-    unset($env);
-}
-
-// PRedis Load (object-cache path broken, because of mu-plugins
-if(file_exists($webroot_dir."/app/mu-plugins/redis-cache/includes/predis.php")) {
-    require_once($webroot_dir."/app/mu-plugins/redis-cache/includes/predis.php");
-}
-
-/**
- * Configuration - Plugin: Batcache
- * @url: https://wordpress.org/plugins/batcache/
- */
-$batcache = array(
-    'debug' => false,
-    'debug_header' => true,
-    'cache_control' => true,
-    'use_stale' => true,
-    'cache_redirects' => true,
-    'group' => 'batcache',
-);
 
 /**
  * Configuration - Worker: IronWorker for WP CronJobs

@@ -61,7 +61,6 @@
 	},
 	"dropin-paths": {
 	  "web/app": [
-		"package:wpackagist-plugin/redis-cache:includes/object-cache.php"
 	  ]
 	},
 	"wordpress-install-dir": "web/wp"
