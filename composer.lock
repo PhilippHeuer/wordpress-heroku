@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c8b3e52316d2e644f42a0f9284a37d2",
+    "content-hash": "204f7a976449fd5681ab751ad9842f33",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -370,6 +370,32 @@
                 "validator"
             ],
             "time": "2016-09-28T07:17:45+00:00"
+        },
+        {
+            "name": "frc/batcache",
+            "version": "v1.3-a1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/frc/batcache.git",
+                "reference": "170e3390dbfbac0f50b5f5b5c1895641004a9c8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/frc/batcache/zipball/170e3390dbfbac0f50b5f5b5c1895641004a9c8d",
+                "reference": "170e3390dbfbac0f50b5f5b5c1895641004a9c8d",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-muplugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "A memcached HTML page cache for WordPress. Fork of the automattic/batcache.",
+            "homepage": "https://github.com/frc/batcache",
+            "time": "2016-11-03T13:41:16+00:00"
         },
         {
             "name": "humanmade/s3-uploads",
@@ -1970,26 +1996,6 @@
             "homepage": "https://wordpress.org/plugins/all-in-one-seo-pack/"
         },
         {
-            "name": "wpackagist-plugin/batcache",
-            "version": "1.4",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/batcache/",
-                "reference": "tags/1.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/batcache.1.4.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/batcache/"
-        },
-        {
             "name": "wpackagist-plugin/debug-bar",
             "version": "0.8.4",
             "source": {
@@ -2217,6 +2223,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "frc/batcache": 15,
         "humanmade/s3-uploads": 10
     },
     "prefer-stable": false,
