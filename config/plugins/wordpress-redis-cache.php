@@ -20,7 +20,7 @@ if (!empty(getenv('REDIS_URL'))) {
 }
 
 // PRedis Load (object-cache path broken, because of mu-plugins
-if(file_exists($webroot_dir."/app/mu-plugins/redis-cache") && !file_exists($webroot_dir."/app/object-cache.php")) {
+if(is_dir($webroot_dir."/app/mu-plugins/redis-cache") && !file_exists($webroot_dir."/app/object-cache.php")) {
     require_once($webroot_dir."/app/mu-plugins/redis-cache/includes/predis.php");
-    copy($webroot_dir."/app/mu-plugins/redis-cache/includes/object-cache.php", $webroot_dir."/app/object-cache.php");
+    @copy($webroot_dir."/app/mu-plugins/redis-cache/includes/object-cache.php", $webroot_dir."/app/object-cache.php");
 }
