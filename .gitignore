@@ -28,4 +28,5 @@ web/wp
 .idea/
 
 # WP Plugins
-web/app/sunrise.php
+web/app/object-cache.php
+web/app/advanced-cache.php

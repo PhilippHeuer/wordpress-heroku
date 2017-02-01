@@ -1,0 +1,10 @@
+# global
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /wp/wp-admin/
+Disallow: /wp/wp-includes/
+Disallow: /app/plugins/
+Disallow: /app/mu-plugins/
+Disallow: /app/cache/
+Disallow: /app/themes/
+Allow: /app/uploads/

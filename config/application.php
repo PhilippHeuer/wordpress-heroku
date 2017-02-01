@@ -15,7 +15,7 @@ Env::init();
  * Use Dotenv to set required environment variables and load .env file in root
  */
 $dotenv = new Dotenv\Dotenv($root_dir);
-if (file_exists($root_dir . '/.env')) {
+if (file_exists($root_dir.'/.env')) {
     $dotenv->load();
 }
 
@@ -30,76 +30,34 @@ if (!getenv('DB_USER')) {
 }
 
 /**
- * Configuration - Database: Heroku JawsDb
+ * Load Plugin Configurations
  */
-$env = getenv('JAWSDB_MARIA_URL');
-if ($env) {
-    $url = parse_url($env);
-    putenv(sprintf('DB_HOST=%s', $url['host']));
-    if (array_key_exists('port', $url)) {
-        putenv(sprintf('DB_PORT=%s', $url['port']));
+function includeDirectory($dir)
+{
+    foreach (scandir($dir) as $filename) {
+        $path = $dir . '/' . $filename;
+        if (is_file($path)) {
+            require_once($path);
+        }
     }
-    putenv(sprintf('DB_USER=%s', $url['user']));
-    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
 }
-
-/**
- * Configuration - Database: Heroku ClearDb
- */
-$env = getenv('CLEARDB_DATABASE_URL');
-if ($env) {
-    $url = parse_url($env);
-    putenv(sprintf('DB_HOST=%s', $url['host']));
-    putenv(sprintf('DB_PORT=%s', $url['port']));
-    putenv(sprintf('DB_USER=%s', $url['user']));
-    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
-}
+includeDirectory($root_dir."/config/plugins");
 
 /**
  * Configuration - Database: Custom
  */
-$env = getenv('CUSTOM_DB_URL');
-if ($env) {
-    $url = parse_url($env);
-    putenv(sprintf('DB_HOST=%s', $url['host']));
-    putenv(sprintf('DB_PORT=%s', $url['port']));
-    putenv(sprintf('DB_USER=%s', $url['user']));
-    putenv(sprintf('DB_PASSWORD=%s', $url['pass']));
-    putenv(sprintf('DB_NAME=%s', ltrim($url['path'], '/')));
-}
+if (!empty(getenv('CUSTOM_DB_URL'))) {
+    $env = parse_url(getenv('CUSTOM_DB_URL'));
 
-/**
- * Configuration - Plugin: S3 Uploads
- * @url: https://github.com/humanmade/S3-Uploads
- */
-$env = getenv('AWS_S3_URL');
-if ($env) {
-    $url = parse_url($env);
+    putenv(sprintf('DB_HOST=%s', $env['host']));
+    if (array_key_exists('port', $env)) {
+        putenv(sprintf('DB_PORT=%s', $env['port']));
+    }
+    putenv(sprintf('DB_USER=%s', $env['user']));
+    putenv(sprintf('DB_PASSWORD=%s', $env['pass']));
+    putenv(sprintf('DB_NAME=%s', ltrim($env['path'], '/')));
 
-    define('S3_UPLOADS_AUTOENABLE', true);
-    define('S3_UPLOADS_KEY', $url['user']);
-    define('S3_UPLOADS_SECRET', $url['pass']);
-    define('S3_UPLOADS_REGION', str_replace(array('s3-', '.amazonaws.com'), array('', ''), $url['host']));
-    define('S3_UPLOADS_BUCKET', ltrim($url['path'], '/'));
-} else {
-    define('S3_UPLOADS_AUTOENABLE', false);
-}
-
-/**
- * Configuration - Plugin: Sendgrid
- * @url: https://wordpress.org/plugins/sendgrid-email-delivery-simplified/
- */
-if (getenv('SENDGRID_USERNAME') && getenv('SENDGRID_PASSWORD')) {
-    // Auth method ('apikey' or 'credentials')
-    define('SENDGRID_AUTH_METHOD', 'credentials');
-    define('SENDGRID_USERNAME', getenv('SENDGRID_USERNAME'));
-    define('SENDGRID_PASSWORD', getenv('SENDGRID_PASSWORD'));
-} else if (getenv('SENDGRID_API_KEY')) {
-    // Auth method ('apikey' or 'credentials')
-    define('SENDGRID_AUTH_METHOD', 'apikey');
-    define('SENDGRID_API_KEY', getenv('SENDGRID_API_KEY'));
+    unset($env);
 }
 
 /**
@@ -142,11 +100,6 @@ define('WP_CONTENT_DIR', $webroot_dir . CONTENT_DIR);
 define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
 
 /**
- * Cache
- */
-define('WP_CACHE', env('WP_CACHE'));
-
-/**
  * DB settings
  */
 define('DB_NAME', env('DB_NAME'));
@@ -174,7 +127,12 @@ define('NONCE_SALT', env('NONCE_SALT'));
  */
 define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISALLOW_FILE_EDIT', true);
+define('DISALLOW_FILE_MODS', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
+
+// Enforce SSL for Login/Admin
+define('FORCE_SSL_LOGIN', true);
+define('FORCE_SSL_ADMIN', true);
 
 /**
  * Multi Site

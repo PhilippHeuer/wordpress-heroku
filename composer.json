@@ -20,6 +20,7 @@
 	  "url": "https://wpackagist.org"
 	}
   ],
+  "minimum-stability": "stable",
   "require": {
 	"php": ">=7.0",
 	"ext-gettext": "*",
@@ -34,7 +35,11 @@
 	"wpackagist-plugin/all-in-one-seo-pack": "2.3.11.3",
 	"wpackagist-plugin/nginx-helper": "1.9.9",
 	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.10.7",
-	"humanmade/s3-uploads": "2.0.0-beta2"
+	"frc/batcache": "1.3-a1",
+	"wpackagist-plugin/redis-cache": "1.3.5",
+	"predis/predis": "1.1.1",
+	"humanmade/s3-uploads": "2.0.0-beta2",
+	"wpackagist-plugin/debug-bar": "0.8.4"
   },
   "require-dev": {
 	"heroku/heroku-buildpack-php": "*",
@@ -42,6 +47,10 @@
   },
   "extra": {
 	"installer-paths": {
+	  "vendor/dumpster/": [
+		"wpackagist-plugin/redis-cache",
+		"frc/batcache"
+	  ],
 	  "web/app/mu-plugins/{$name}/": [
 		"wpackagist-plugin/wordfence",
 		"wpackagist-plugin/nginx-helper",
@@ -49,10 +58,17 @@
 		"humanmade/s3-uploads"
 	  ],
 	  "web/app/plugins/{$name}/": [
-		"wpackagist-plugin/all-in-one-seo-pack"
+		"wpackagist-plugin/all-in-one-seo-pack",
+		"wpackagist-plugin/debug-bar"
 	  ],
 	  "web/app/themes/{$name}/": [
 		"type:wordpress-theme"
+	  ]
+	},
+	"dropin-paths": {
+	  "web/app": [
+		"package:wpackagist-plugin/redis-cache:includes/object-cache.php",
+		"package:frc/batcache:advanced-cache.php"
 	  ]
 	},
 	"wordpress-install-dir": "web/wp"

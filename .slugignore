@@ -10,3 +10,6 @@ phpcs.xml
 
 # Heroku Deploy Configuration
 app.json
+
+# drop in plugins
+vendor/dumpster
