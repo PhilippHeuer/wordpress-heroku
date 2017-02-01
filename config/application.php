@@ -136,6 +136,11 @@ if (!empty(getenv('REDIS_URL'))) {
     unset($env);
 }
 
+// PRedis Load (object-cache path broken, because of mu-plugins
+if(file_exists($webroot_dir."/app/mu-plugins/redis-cache/includes/predis.php")) {
+    require_once($webroot_dir."/app/mu-plugins/redis-cache/includes/predis.php");
+}
+
 /**
  * Configuration - Plugin: Batcache
  * @url: https://wordpress.org/plugins/batcache/
