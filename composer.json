@@ -36,6 +36,7 @@
 	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.10.7",
 	"wpackagist-plugin/batcache": "1.4",
 	"wpackagist-plugin/redis-cache": "1.3.5",
+	"predis/predis": "1.1.1",
 	"humanmade/s3-uploads": "2.0.0-beta2"
   },
   "require-dev": {
@@ -61,11 +62,15 @@
 	},
 	"dropin-paths": {
 	  "web/app": [
+		"package:wpackagist-plugin/redis-cache:includes/object-cache.php"
 	  ]
 	},
 	"wordpress-install-dir": "web/wp"
   },
   "scripts": {
+	"post-install-cmd": [
+	  	"ln -s web/app/mu-plugins/redis-cache/includes/object-cache.php web/app/object-cache.php"
+	],
 	"test": [
 	  "vendor/bin/phpcs"
 	]
