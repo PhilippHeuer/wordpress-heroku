@@ -24,12 +24,12 @@
   "require": {
 	"php": ">=7.0",
 	"ext-gettext": "*",
-	"composer/installers": "1.2.0",
+	"composer/installers": "^1.2.0",
 	"vlucas/phpdotenv": "^2.0.1",
-	"koodimonni/composer-dropin-installer": "1.1.0",
-	"johnpbloch/wordpress": "4.7.2",
-	"wp-cli/wp-cli" : "1.0.0",
+	"wp-cli/wp-cli" : "^1.1.0",
 	"oscarotero/env": "^1.0",
+	"koodimonni/composer-dropin-installer": "^1.1.0",
+	"johnpbloch/wordpress": "4.7.2",
 	"roots/wp-password-bcrypt": "1.0.0",
 	"wpackagist-plugin/wordfence": "6.3.0",
 	"wpackagist-plugin/all-in-one-seo-pack": "2.3.11.3",
@@ -43,7 +43,7 @@
   },
   "require-dev": {
 	"heroku/heroku-buildpack-php": "*",
-	"squizlabs/php_codesniffer": "^2.5.1"
+	"squizlabs/php_codesniffer": "^2.8.0"
   },
   "extra": {
 	"installer-paths": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "204f7a976449fd5681ab751ad9842f33",
+    "content-hash": "024e43eb56b5ea4cb1b31c586c1f0774",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1910,20 +1910,20 @@
         },
         {
             "name": "wp-cli/wp-cli",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli.git",
-                "reference": "62d10c72aa1e77f7bf0a84dd495369c41fe12a2e"
+                "reference": "5a28b49f7e725c74f747620fb5b1d6060953abf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/62d10c72aa1e77f7bf0a84dd495369c41fe12a2e",
-                "reference": "62d10c72aa1e77f7bf0a84dd495369c41fe12a2e",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/5a28b49f7e725c74f747620fb5b1d6060953abf1",
+                "reference": "5a28b49f7e725c74f747620fb5b1d6060953abf1",
                 "shasum": ""
             },
             "require": {
-                "composer/composer": "^1.0.0",
+                "composer/composer": "^1.2.0",
                 "composer/semver": "~1.0",
                 "mustache/mustache": "~2.4",
                 "mustangostang/spyc": "~0.5",
@@ -1973,7 +1973,7 @@
                 "cli",
                 "wordpress"
             ],
-            "time": "2016-11-29T19:33:53+00:00"
+            "time": "2017-02-01T14:20:12+00:00"
         },
         {
             "name": "wpackagist-plugin/all-in-one-seo-pack",
@@ -2143,16 +2143,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.7.1",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "9b324f3a1132459a7274a0ace2e1b766ba80930f"
+                "reference": "86dd55a522238211f9f3631e3361703578941d9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9b324f3a1132459a7274a0ace2e1b766ba80930f",
-                "reference": "9b324f3a1132459a7274a0ace2e1b766ba80930f",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/86dd55a522238211f9f3631e3361703578941d9a",
+                "reference": "86dd55a522238211f9f3631e3361703578941d9a",
                 "shasum": ""
             },
             "require": {
@@ -2217,7 +2217,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-11-30T04:02:31+00:00"
+            "time": "2017-02-02T03:30:00+00:00"
         }
     ],
     "aliases": [],

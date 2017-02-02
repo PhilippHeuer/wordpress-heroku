@@ -101,8 +101,9 @@ $ heroku addons:create sendgrid:starter
 --------
 
 ###### Worker (Optional)
-You only need to do this part, if you want to improve the site performance by
-running the wordpress cronjobs using a scheduler.
+You can improve performance by scheduling wp-cron
+instead of running it while a user waits for the site to load.
+
 ```bash
 $ heroku addons:create scheduler:standard
 $ heroku config:set DISABLE_WP_CRON='true'
@@ -120,7 +121,7 @@ Create a new task with the following options:
 --------
 
 ###### Database (Required)
-You can pick one of the three following options:
+You can pick one of the following three options:
  - Maria Db
 ```bash
 $ heroku addons:create jawsdb-maria:kitefin
@@ -141,18 +142,16 @@ mysql://user:password@host:port/databaseName
 --------
 
 ###### Persistent Storage (Optional)
-The Heroku Filesystem is not persistend, which means that all media uploads
-will be gone after a while. Therefore you need to configure a persistent storage.
-Here are some options:
+The Heroku Filesystem is not persistent, which means that all media uploads
+will be gone after a while. Therefore you need to configure a persistent storage, if
+you plan to upload files.
 
  - Amazon S3
 You need create a Amazon S3 bucket and access credentials.
 Those access credentials are provided using the Heroku Dashboard -> App -> Settings -> Config vars.
 ```bash
-AWS_ACCESS_KEY_ID=SECRET
-AWS_SECRET_ACCESS_KEY=SECRET
+AWS_S3_URL=s3://ACCESS_ID:ACCESS_SECRET@s3-REGION.amazonaws.com/bucketName
 ```
-After installing WordPress you need to enable the two Amazon Plugins in the Control Panel.
 
 --------
 
