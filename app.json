@@ -73,6 +73,9 @@
 	},
 	{
 	  "plan": "heroku-redis:hobby-dev"
+	},
+	{
+	  "plan": "papertrail:choklad"
 	}
   ],
   "buildpacks": [
