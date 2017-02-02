@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "024e43eb56b5ea4cb1b31c586c1f0774",
+    "content-hash": "54efc40ad0f4753df545f8007510c0ff",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1977,15 +1977,15 @@
         },
         {
             "name": "wpackagist-plugin/all-in-one-seo-pack",
-            "version": "2.3.11.3",
+            "version": "2.3.11.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/all-in-one-seo-pack/",
-                "reference": "tags/2.3.11.3"
+                "reference": "tags/2.3.11.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/all-in-one-seo-pack.2.3.11.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/all-in-one-seo-pack.2.3.11.4.zip",
                 "reference": null,
                 "shasum": null
             },

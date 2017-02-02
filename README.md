@@ -42,17 +42,24 @@ All required extensions (MySQL DB) will be deployed automatically.
 This also works if you fork your own project to work on your site.
 
 #### Method 2: Deploy using Heroku CLI (suggested for customization)
-Heroku offers a command line interface for easy deployments.
+If you want to deploy it yourself, please make sure that your environment
+is installed and configured.
+Check out the wiki on [installing your development environment](https://github.com/PhilippHeuer/wordpress-heroku/wiki/Environment-Installation).
 
-First you clone the repository onto your local drive, because you can only
-deploy to Heroku using git.
+--------
+
+###### Creation
+If you want to deploy to Heroku, you are required to have a git repository.
+Therefore you need to clone the repository onto your local drive.
 ```bash
 $ git clone https://github.com/PhilippHeuer/wordpress-heroku.git
 ```
 
-Now you can create a new application on heroku and link it to your current git repository.
+Using Heroku CLI you can create a new application in the dashboard and link it to the git repository.
 ```bash
 $ heroku create
+Creating app... done, weird-name-12345
+https://weird-name-12345.herokuapp.com/ | https://git.heroku.com/weird-name-12345.git
 ```
 
 --------
