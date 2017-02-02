@@ -2,9 +2,7 @@
 
 echo "Running WordPress Cronjob using the Heroku Scheduler ..."
 export WP_CACHE=false
+cd $HOME
 
-# Change to wordpress directory
-cd $HOME/web/wp
-
-# Execute the wordpress cronjob
-php wp-cron.php
+# Run cronjob using wp-cli
+vendor/bin/wp cron event run --all

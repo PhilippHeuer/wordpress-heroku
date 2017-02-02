@@ -135,6 +135,8 @@ $ heroku addons:create jawsdb-maria:kitefin
 ```
  - MySQL
 ```bash
+$ heroku addons:create jawsdb:kitefin
+or
 $ heroku addons:create cleardb:ignite
 ```
  - Custom Database

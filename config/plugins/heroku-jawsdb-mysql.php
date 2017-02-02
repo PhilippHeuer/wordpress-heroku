@@ -1,9 +1,10 @@
 <?php
 /**
- * Configuration - Database: Heroku JawsDb
+ * Configuration - Database: Heroku JawsDb MySQL
+ * @url: https://elements.heroku.com/addons/jawsdb
  */
-if (!empty(getenv('JAWSDB_MARIA_URL'))) {
-    $env = parse_url(getenv('JAWSDB_MARIA_URL'));
+if (!empty(getenv('JAWSDB_URL'))) {
+    $env = parse_url(getenv('JAWSDB_URL'));
 
     putenv(sprintf('DB_HOST=%s', $env['host']));
     if (array_key_exists('port', $env)) {
