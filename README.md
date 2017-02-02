@@ -169,8 +169,21 @@ Redis caching can improve your application performance by x20 or even more.
 It saves the results of sql queries in ram memory, therefore reducing loading times.
 
 You only need to attach the Heroku Redis addon to your application.
+
 ```bash
 $ heroku addons:create heroku-redis:hobby-dev
+```
+
+--------
+
+###### Logging (Optional)
+[Papertrail](https://elements.heroku.com/addons/papertrail) is an add-on providing hosted log aggregation and management, including real-time tail, search, and alerts on application and platform logs.
+
+Adding log management to an application provides truly realtime app visibility, faster troubleshooting, elegant alerting optimized for Heroku, and painless archives.
+Papertrail is accessible via Web browser, command-line client, and HTTP API.
+
+```bash
+$ heroku addons:create papertrail:choklad
 ```
 
 --------
