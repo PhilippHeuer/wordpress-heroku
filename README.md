@@ -17,27 +17,15 @@ Support:
 ## About:
 This project is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/).
 
-[Bedrock](https://roots.io/bedrock/) is a modern WordPress stack that helps you get started with the best development tools and a modern project structure.
+It is based on [Bedrock](https://roots.io/bedrock/), a modern WordPress stack that helps you to get started with the best development tools and a modern project structure.
 
 All resources used in this project are free-of-charge. You can upgrade them post-deployment.
 
 ## Table of Contents
-- [Features](#features)
-- [Performance](#performance)
 - [Getting Started](#gettingstarted)
-- [WIKI](./wiki)
+- [Features](#features)
+- [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki)
 - [Changelog](./CHANGELOG.md)
-
-## Features
- - [x] Better folder structure
- - [x] Dependency management with [Composer](http://getcomposer.org)
- - [x] Easy WordPress configuration with environment variables from Heroku
- - [x] Autoloader for mu-plugins (use regular plugins as mu-plugins)
- - [x] Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
-
-## Performance
-This stack can handle more than 100 page view per second, only using free resources.
-This is only possible because of caching and the use of content-delivery-networks.
 
 ## Getting Started
 #### Method 1: One-Click-Deployment (suggested for evaluation)
@@ -50,7 +38,14 @@ All required extensions (MySQL DB) will be deployed automatically.
 This also works if you fork your own project to work on your site.
 
 #### Method 2: Deploy using Heroku CLI (suggested for customization)
-Plase check out the []deployment page](https://github.com/PhilippHeuer/wordpress-heroku/wiki/Deployment) in the wiki for a step-by-step guide.
+Plase check out the [deployment page](https://github.com/PhilippHeuer/wordpress-heroku/wiki/Deployment) in the wiki for a step-by-step guide.
+
+## Features
+ - [x] Better folder structure
+ - [x] Dependency management with [Composer](http://getcomposer.org)
+ - [x] Easy WordPress configuration with environment variables from Heroku
+ - [x] Autoloader for mu-plugins (use regular plugins as mu-plugins)
+ - [x] Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
 ## Problems?
 
