@@ -1,11 +1,15 @@
-# WordPress - Heroku Template
+# [WordPress](https://wordpress.org/) on [Heroku](http://heroku.com)
+
+Project Information:
+
 [![Build Status](https://travis-ci.org/PhilippHeuer/wordpress-heroku.svg?branch=master)](https://travis-ci.org/PhilippHeuer/wordpress-heroku)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ea24e1ba7dbf4845b94ddb23929b0fd1)](https://www.codacy.com/app/PhilippHeuer/wordpress-heroku?utm_source=github.com&utm_medium=referral&utm_content=PhilippHeuer/wordpress-heroku&utm_campaign=badger)
 [![Dependency Status](https://www.versioneye.com/user/projects/588d26251618a700318eb016/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/588d26251618a700318eb016)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/PhilippHeuer/wordpress-heroku.svg)](http://isitmaintained.com/project/PhilippHeuer/wordpress-heroku "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/PhilippHeuer/wordpress-heroku.svg)](http://isitmaintained.com/project/PhilippHeuer/wordpress-heroku "Percentage of issues still open")
 
-[![Deploy](https://img.shields.io/badge/DeployOn-Heroku-7056BF.svg?style=flat-square)](https://heroku.com/deploy)
+Support:
+
 [![Discord](https://img.shields.io/badge/Join-Discord-7289DA.svg?style=flat-square)](https://discord.gg/JqUCaqY)
 
 --------
@@ -13,19 +17,16 @@
 ## About:
 This project is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/).
 
-This project also uses a modern boilerplate for easy management of plugins. [Bedrock](https://roots.io/bedrock/) is a modern WordPress stack that helps you get started with the best development tools and project structure.
+[Bedrock](https://roots.io/bedrock/) is a modern WordPress stack that helps you get started with the best development tools and a modern project structure.
 
-The Heroku configuration in this project only uses free resources, but you can upgrade them after deployment.
-
-## Dependency Versions
- * WordPress 4.7.2 (latest)
- * Bedrock 1.7.5 (latest)
+All resources used in this project are free-of-charge. You can upgrade them post-deployment.
 
 ## Table of Contents
 - [Features](#features)
+- [Performance](#performance)
 - [Getting Started](#gettingstarted)
-- [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki)
-- [Changelog](https://github.com/PhilippHeuer/wordpress-heroku/blob/master/CHANGELOG.md)
+- [WIKI](./wiki)
+- [Changelog](./CHANGELOG.md)
 
 ## Features
  - [x] Better folder structure
@@ -34,175 +35,28 @@ The Heroku configuration in this project only uses free resources, but you can u
  - [x] Autoloader for mu-plugins (use regular plugins as mu-plugins)
  - [x] Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
+## Performance
+This stack can handle more than 100 page view per second, only using free resources.
+This is only possible because of caching and the use of content-delivery-networks.
+
 ## Getting Started
-#### Method 1: Deploy using the Heroku Badge (suggested for evaluation)
-On the top of this readme there is a Heroku Deploy Badge, which can be clicked to
-launch a new instance in Heroku.
+#### Method 1: One-Click-Deployment (suggested for evaluation)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Using this button you can deploy a new instance of WordPress.
+
 All required extensions (MySQL DB) will be deployed automatically.
 This also works if you fork your own project to work on your site.
 
 #### Method 2: Deploy using Heroku CLI (suggested for customization)
-If you want to deploy it yourself, please make sure that your environment
-is installed and configured.
-Check out the wiki on [installing your development environment](https://github.com/PhilippHeuer/wordpress-heroku/wiki/Environment-Installation).
+Plase check out the []deployment page](https://github.com/PhilippHeuer/wordpress-heroku/wiki/Deployment) in the wiki for a step-by-step guide.
 
---------
+## Problems?
 
-###### Creation
-If you want to deploy to Heroku, you are required to have a git repository.
-Therefore you need to clone the repository onto your local drive.
-```bash
-$ git clone https://github.com/PhilippHeuer/wordpress-heroku.git
-```
+If you have problems using your instance of WordPress, you should check the [official documentation](https://codex.wordpress.org/).
+If you discover an issue with the deployment process provided by *this repository*, then [open an issue here](https://github.com/PhilippHeuer/wordpress-heroku/issues/new).
 
-Using Heroku CLI you can create a new application in the dashboard and link it to the git repository.
-```bash
-$ heroku create
-Creating app... done, weird-name-12345
-https://weird-name-12345.herokuapp.com/ | https://git.heroku.com/weird-name-12345.git
-```
+## License
 
---------
-
-###### Configuration (Required)
-You need to generate secrets to make your WordPress installation more secure:
-You can generate random values using the [wordpress secret key api](https://api.wordpress.org/secret-key/1.1/salt/).
-
-- On Windows
-```bash
-$ heroku config:set ^
-    AUTH_KEY='SECRET' ^
-    SECURE_AUTH_KEY='SECRET' ^
-    LOGGED_IN_KEY='SECRET' ^
-    NONCE_KEY='SECRET' ^
-    AUTH_SALT='SECRET' ^
-    SECURE_AUTH_SALT='SECRET' ^
-    LOGGED_IN_SALT='SECRET' ^
-    NONCE_SALT='SECRET'
-```
-- On Linux
-```bash
-$ heroku config:set \
-    AUTH_KEY='SECRET' \
-    SECURE_AUTH_KEY='SECRET' \
-    LOGGED_IN_KEY='SECRET' \
-    NONCE_KEY='SECRET' \
-    AUTH_SALT='SECRET' \
-    SECURE_AUTH_SALT='SECRET' \
-    LOGGED_IN_SALT='SECRET' \
-    NONCE_SALT='SECRET'
-```
-
-###### Addons
-
---------
-
-###### SendGrid (Optional)
-You need an extension to send emails, since Heroku doesn't support this by default.
-Please be aware that you need to provide Heroku with your credit card information to use SendGrid.
-This does not cause any costs, you can still use this addon free of charge!
-```bash
-$ heroku addons:create sendgrid:starter
-```
-
---------
-
-###### Worker (Optional)
-You can improve performance by scheduling wp-cron
-instead of running it while a user waits for the site to load.
-
-```bash
-$ heroku addons:create scheduler:standard
-$ heroku config:set DISABLE_WP_CRON='true'
-$ heroku addons:open scheduler
-```
-The last command opens the scheduler configuration in your browser.
-Create a new task with the following options:
-
-| Option        | Value                 |
-| ------------- |:-------------:        |
-| Dyno Size     | Free                  |
-| Frequency     | Every 10 minutes      |
-| Command       | bin/cron/wordpress.sh |
-
---------
-
-###### Database (Required)
-You can pick one of the following three options:
- - Maria Db
-```bash
-$ heroku addons:create jawsdb-maria:kitefin
-```
- - MySQL
-```bash
-$ heroku addons:create jawsdb:kitefin
-or
-$ heroku addons:create cleardb:ignite
-```
- - Custom Database
-
-To use your own private database, you can provide a connection string in environment variables.
-You need to open your Application in the Heroku Dashboard and visit Settings -> Reveal Config Vars.
-You need to set the Key to "CUSTOM_DB_URL" and provide a connection string in the following format:
-```sql
-mysql://user:password@host:port/databaseName
-```
-
---------
-
-###### Persistent Storage (Optional)
-The Heroku Filesystem is not persistent, which means that all media uploads
-will be gone after a while. Therefore you need to configure a persistent storage, if
-you plan to upload files.
-
- - Amazon S3
-You need create a Amazon S3 bucket and access credentials.
-Those access credentials are provided using the Heroku Dashboard -> App -> Settings -> Config vars.
-```bash
-AWS_S3_URL=s3://ACCESS_ID:ACCESS_SECRET@s3-REGION.amazonaws.com/bucketName
-```
-
---------
-
-###### Cache (Optional)
-Redis caching can improve your application performance by x20 or even more.
-It saves the results of sql queries in ram memory, therefore reducing loading times.
-
-You only need to attach the Heroku Redis addon to your application.
-
-```bash
-$ heroku addons:create heroku-redis:hobby-dev
-```
-
---------
-
-###### Logging (Optional)
-[Papertrail](https://elements.heroku.com/addons/papertrail) is an add-on providing hosted log aggregation and management, including real-time tail, search, and alerts on application and platform logs.
-
-Adding log management to an application provides truly realtime app visibility, faster troubleshooting, elegant alerting optimized for Heroku, and painless archives.
-Papertrail is accessible via Web browser, command-line client, and HTTP API.
-
-```bash
-$ heroku addons:create papertrail:choklad
-```
-
---------
-
-###### Deploy / Update
-Now you can deploy your project to heroku (or when you update your application):
-```bash
-$ git push heroku master
-```
-
---------
-
-###### Open Application
-Now you can open your app using the following command. This will open a new window in your browser.
-```bash
-$ heroku open
-```
-
-Congratulations, you have successfully installed WordPress on Heroku.
-Please read the [WIKI](https://github.com/PhilippHeuer/wordpress-heroku/wiki) on how to customize your installation.
-
-If you had any problems, you are welcome to join the Discord Server to talk about your issues.
+Released under the [MIT license](./LICENSE).

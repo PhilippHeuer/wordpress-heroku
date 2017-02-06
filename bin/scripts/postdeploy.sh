@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 cd $HOME
 
+# only for auto deployments or as soon as labs / heroku env becomes available in app.json
 if [ ! -z "$HEROKU_APP_NAME" ]; then
 
 	# wordpress: values
