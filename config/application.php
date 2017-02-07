@@ -41,7 +41,8 @@ function includeDirectory($dir)
         }
     }
 }
-includeDirectory($root_dir."/config/plugins");
+includeDirectory($root_dir."/config/plugins/heroku");
+includeDirectory($root_dir."/config/plugins/wordpress");
 
 /**
  * Configuration - Database: Custom
