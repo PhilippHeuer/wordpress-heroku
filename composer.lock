@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9f8b1e82958ae3468175ba2b6ac6fe5",
+    "content-hash": "91dbe6c96fd6f755a80fc6e9f5b75694",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -67,23 +67,23 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.3.2",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "e7569edb4a5eadcbb2e4ad5ed753282260f281df"
+                "reference": "7ee2a5e1cf32e9c8439445fe8dce2c046c2abebd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/e7569edb4a5eadcbb2e4ad5ed753282260f281df",
-                "reference": "e7569edb4a5eadcbb2e4ad5ed753282260f281df",
+                "url": "https://api.github.com/repos/composer/composer/zipball/7ee2a5e1cf32e9c8439445fe8dce2c046c2abebd",
+                "reference": "7ee2a5e1cf32e9c8439445fe8dce2c046c2abebd",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "^1.0",
                 "composer/semver": "^1.0",
                 "composer/spdx-licenses": "^1.0",
-                "justinrainbow/json-schema": "^1.6 || ^2.0 || ^3.0 || ^4.0",
+                "justinrainbow/json-schema": "^3.0 || ^4.0 || ^5.0",
                 "php": "^5.3.2 || ^7.0",
                 "psr/log": "^1.0",
                 "seld/cli-prompt": "^1.0",
@@ -109,7 +109,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -140,7 +140,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2017-01-27T17:23:42+00:00"
+            "time": "2017-03-10T08:29:45+00:00"
         },
         {
             "name": "composer/installers",
@@ -400,16 +400,16 @@
         },
         {
             "name": "humanmade/s3-uploads",
-            "version": "v2.0.0-beta2",
+            "version": "v2.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/humanmade/S3-Uploads.git",
-                "reference": "cde95df1abbeea049f79ca6db80b385986ca1a0b"
+                "reference": "d3c8d81fa57e4535271fbe47c9cef2e54b54da3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/humanmade/S3-Uploads/zipball/cde95df1abbeea049f79ca6db80b385986ca1a0b",
-                "reference": "cde95df1abbeea049f79ca6db80b385986ca1a0b",
+                "url": "https://api.github.com/repos/humanmade/S3-Uploads/zipball/d3c8d81fa57e4535271fbe47c9cef2e54b54da3c",
+                "reference": "d3c8d81fa57e4535271fbe47c9cef2e54b54da3c",
                 "shasum": ""
             },
             "require": {
@@ -432,7 +432,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2016-08-09T11:31:04+00:00"
+            "time": "2017-03-15T04:01:31+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -521,16 +521,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "4.1.0",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "d39c56a46b3ebe1f3696479966cd2b9f50aaa24f"
+                "reference": "48817e5f95c9d29e11513f12e43cc0223fa5eb6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d39c56a46b3ebe1f3696479966cd2b9f50aaa24f",
-                "reference": "d39c56a46b3ebe1f3696479966cd2b9f50aaa24f",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/48817e5f95c9d29e11513f12e43cc0223fa5eb6c",
+                "reference": "48817e5f95c9d29e11513f12e43cc0223fa5eb6c",
                 "shasum": ""
             },
             "require": {
@@ -547,7 +547,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0.x-dev"
+                    "dev-master": "5.0.x-dev"
                 }
             },
             "autoload": {
@@ -583,7 +583,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-12-22T16:43:46+00:00"
+            "time": "2017-02-22T03:28:16+00:00"
         },
         {
             "name": "koodimonni/composer-dropin-installer",
@@ -1981,15 +1981,15 @@
         },
         {
             "name": "wpackagist-plugin/all-in-one-seo-pack",
-            "version": "2.3.12",
+            "version": "2.3.12.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/all-in-one-seo-pack/",
-                "reference": "tags/2.3.12"
+                "reference": "tags/2.3.12.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/all-in-one-seo-pack.2.3.12.zip",
+                "url": "https://downloads.wordpress.org/plugin/all-in-one-seo-pack.2.3.12.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2021,15 +2021,15 @@
         },
         {
             "name": "wpackagist-plugin/nginx-helper",
-            "version": "1.9.9",
+            "version": "1.9.10",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/nginx-helper/",
-                "reference": "tags/1.9.9"
+                "reference": "tags/1.9.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/nginx-helper.1.9.9.zip",
+                "url": "https://downloads.wordpress.org/plugin/nginx-helper.1.9.10.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -2081,15 +2081,15 @@
         },
         {
             "name": "wpackagist-plugin/wordfence",
-            "version": "6.3.2",
+            "version": "6.3.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordfence/",
-                "reference": "tags/6.3.2"
+                "reference": "tags/6.3.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordfence.6.3.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/wordfence.6.3.4.zip",
                 "reference": null,
                 "shasum": null
             },
