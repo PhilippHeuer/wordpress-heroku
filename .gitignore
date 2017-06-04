@@ -9,12 +9,14 @@ web/app/themes
 
 # WordPress
 web/wp
+web/.htaccess
 
 # Dotenv
 .env
 
 # Composer
 /vendor
+!vendor/.gitkeep
 
 # Eclipse project files
 .classpath

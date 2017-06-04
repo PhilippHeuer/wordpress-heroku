@@ -15,7 +15,7 @@ Env::init();
  * Use Dotenv to set required environment variables and load .env file in root
  */
 $dotenv = new Dotenv\Dotenv($root_dir);
-if (file_exists($root_dir.'/.env')) {
+if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
 }
 
