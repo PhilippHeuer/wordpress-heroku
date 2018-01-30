@@ -131,9 +131,11 @@ define('DISALLOW_FILE_EDIT', true);
 define('DISALLOW_FILE_MODS', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 
-// Enforce SSL for Login/Admin
-define('FORCE_SSL_LOGIN', true);
-define('FORCE_SSL_ADMIN', true);
+// Enforce SSL for Login/Admin in production
+if(env('WP_ENV') != "development") {
+    define('FORCE_SSL_LOGIN', true);
+    define('FORCE_SSL_ADMIN', true);
+}
 
 /**
  * Multi Site
