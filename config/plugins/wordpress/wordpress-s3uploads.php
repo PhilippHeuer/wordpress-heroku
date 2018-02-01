@@ -4,13 +4,13 @@
  * @url: https://github.com/humanmade/S3-Uploads
  */
 if (!empty(getenv('AWS_S3_URL'))) {
-    $env = parse_url(getenv('AWS_S3_URL'));
+    $env = sscanf(getenv('AWS_S3_URL'), 's3://%[^:]:%[^@]@s3-%[^.].amazonaws.com/%s');
 
     define('S3_UPLOADS_AUTOENABLE', true);
-    define('S3_UPLOADS_KEY', $env['user']);
-    define('S3_UPLOADS_SECRET', $env['pass']);
-    define('S3_UPLOADS_REGION', str_replace(array('s3-', '.amazonaws.com'), array('', ''), $env['host']));
-    define('S3_UPLOADS_BUCKET', ltrim($env['path'], '/'));
+    define('S3_UPLOADS_KEY', $env[0]);
+    define('S3_UPLOADS_SECRET', $env[1]);
+    define('S3_UPLOADS_REGION', $env[2]);
+    define('S3_UPLOADS_BUCKET', $env[3]);
 
     unset($env);
 } else {
