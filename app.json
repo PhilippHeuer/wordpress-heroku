@@ -16,7 +16,7 @@
 	  "bin/scripts/postdeploy.sh"
 	]
   },
-  "stack": "cedar-14",
+  "stack": "heroku-18",
   "env": {
 	"AUTH_KEY": {
 	  "description": "A secret key to increase security of stored information.",
