@@ -10,14 +10,14 @@
   "config": {
 	"preferred-install": "dist",
 	"platform":{
-	  "php": "7.0",
-	  "ext-gettext": "1.0"
+		"php": "7.0",
+		"ext-gettext": "1.0"
 	}
   },
   "repositories": [
 	{
-	  "type": "composer",
-	  "url": "https://wpackagist.org"
+		"type": "composer",
+		"url": "https://wpackagist.org"
 	}
   ],
   "minimum-stability": "stable",
@@ -29,7 +29,7 @@
 	"wp-cli/wp-cli" : "1.4.1",
 	"oscarotero/env": "^1.1.0",
 	"koodimonni/composer-dropin-installer": "1.1.0",
-	"johnpbloch/wordpress": "4.9.2",
+	"johnpbloch/wordpress": "5.2.4",
 	"roots/wp-password-bcrypt": "1.0.0",
 	"wpackagist-plugin/wordfence": "6.3.22",
 	"wpackagist-plugin/all-in-one-seo-pack": "2.4.4",
@@ -75,7 +75,7 @@
   },
   "scripts": {
 	"test": [
-	  "vendor/bin/phpcs"
+		"vendor/bin/phpcs"
 	]
   }
 }
