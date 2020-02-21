@@ -29,7 +29,7 @@
 	"wp-cli/wp-cli" : "1.4.1",
 	"oscarotero/env": "^1.1.0",
 	"koodimonni/composer-dropin-installer": "1.1.0",
-	"johnpbloch/wordpress": "4.9.2",
+	"johnpbloch/wordpress": "5.3.2",
 	"roots/wp-password-bcrypt": "1.0.0",
 	"wpackagist-plugin/wordfence": "6.3.22",
 	"wpackagist-plugin/all-in-one-seo-pack": "2.4.4",
