@@ -19,7 +19,7 @@ This project is a template for installing and running [WordPress](http://wordpre
 
 It is based on [Bedrock](https://roots.io/bedrock/), a modern WordPress stack that helps you to get started with the best development tools and a modern project structure.
 
-All resources used in this project are free-of-charge. You can upgrade them post-deployment.
+All resources used in this project are free. No Charges included. You can upgrade them post-deployment.
 
 ## Table of Contents
 - [Getting Started](#gettingstarted)
@@ -49,7 +49,7 @@ Plase check out the [deployment page](https://github.com/PhilippHeuer/wordpress-
 
 ## Problems?
 
-If you have problems using your instance of WordPress, you should check the [official documentation](https://codex.wordpress.org/).
+If you have problems using your instance of WordPress, you should check this [official documentation](https://codex.wordpress.org/).
 If you discover an issue with the deployment process provided by *this repository*, then [open an issue here](https://github.com/PhilippHeuer/wordpress-heroku/issues/new).
 
 ## License
