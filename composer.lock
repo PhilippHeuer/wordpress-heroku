@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ef6674f58b4748ab2f3cf75a0d65aa0",
+    "content-hash": "b37aa6ec0b6a0c029283348da11c335d",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1995,6 +1995,24 @@
                 "source": "https://github.com/wp-cli/wp-cli"
             },
             "time": "2019-11-12T15:26:05+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/all-in-one-seo-pack",
+            "version": "4.0.12",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/all-in-one-seo-pack/",
+                "reference": "tags/4.0.12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/all-in-one-seo-pack.4.0.12.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/all-in-one-seo-pack/"
         },
         {
             "name": "wpackagist-plugin/debug-bar",

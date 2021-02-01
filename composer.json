@@ -36,6 +36,7 @@
 	"humanmade/s3-uploads": "2.2.2",
 	"wpackagist-plugin/wordfence":"7.4.14",
 	"wpackagist-plugin/nginx-helper": "2.2.2",
+	"wpackagist-plugin/all-in-one-seo-pack":"4.0.12",
 	"wpackagist-plugin/sendgrid-email-delivery-simplified": "1.11.8",
 	"wpackagist-plugin/redis-cache":"2.0.17",
 	"wpackagist-plugin/debug-bar":"1.1.2"
@@ -57,7 +58,8 @@
 		"humanmade/s3-uploads"
 	  ],
 	  "web/app/plugins/{$name}/": [
-		"wpackagist-plugin/debug-bar"
+		"wpackagist-plugin/debug-bar",
+		"wpackagist-plugin/all-in-one-seo-pack"
 	  ],
 	  "web/app/themes/{$name}/": [
 		"type:wordpress-theme"
