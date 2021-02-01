@@ -16,7 +16,7 @@
 	  "bin/scripts/postdeploy.sh"
 	]
   },
-  "stack": "heroku-18",
+  "stack": "heroku-20",
   "env": {
 	"AUTH_KEY": {
 	  "description": "A secret key to increase security of stored information.",
@@ -76,6 +76,9 @@
 	},
 	{
 	  "plan": "papertrail:choklad"
+	},
+	{
+	  "plan": "newrelic:wayne"
 	}
   ],
   "buildpacks": [
