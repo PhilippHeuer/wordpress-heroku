@@ -76,8 +76,6 @@ if (getenv('IRON_WORKER_PROJECT_ID') && getenv('IRON_WORKER_TOKEN')) {
  */
 define('WP_ENV', env('WP_ENV') ?: 'production');
 
-error_log("WP_ENV:" . env('WP_ENV'));
-
 $env_config = __DIR__.'/environments/'.WP_ENV.'.php';
 if (file_exists($env_config)) {
     require_once $env_config;
