@@ -16,8 +16,8 @@
   },
   "repositories": [
 	{
-	  "type": "composer",
-	  "url": "https://wpackagist.org"
+		"type": "composer",
+		"url": "https://wpackagist.org"
 	}
   ],
   "minimum-stability": "stable",
@@ -73,7 +73,7 @@
   },
   "scripts": {
 	"test": [
-	  "vendor/bin/phpcs"
+		"vendor/bin/phpcs"
 	]
   }
 }
