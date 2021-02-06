@@ -38,7 +38,7 @@ All required extensions (MySQL DB) will be deployed automatically.
 This also works if you fork your own project to work on your site.
 
 #### Method 2: Deploy using Heroku CLI (suggested for customization)
-Plase check out the [deployment page](https://github.com/PhilippHeuer/wordpress-heroku/wiki/Deployment) in the wiki for a step-by-step guide.
+Please check out the [deployment page](https://github.com/PhilippHeuer/wordpress-heroku/wiki/Deployment) in the wiki for a step-by-step guide.
 
 ## Features
  - [x] Better folder structure
